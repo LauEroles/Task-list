@@ -1,0 +1,84 @@
+@startuml TaskList
+
+
+class App{
+
+    -tareas:Tarea[]
+    -estadisticas:Estadistica[]
+    +creacionTareas():Tarea
+    +priorizarTarea(tareas Tarea[]): number
+    +buscarTituloTarea(tareas:Tarea):string
+    +buscarFechaVencimiento(tareas:Tarea):Date
+    +recordatorioTarea():Tarea
+
+}
+
+
+class Estadistica{
+    -tazaFinalizacionTarea:number
+    -tiempoDedicadoATarea:number
+
+}
+
+
+class Prioridad{
+    -nivelPrioridad:number
+
+}
+
+class Usuario{
+
+    -tareas: Tarea[]
+    +añadirNuevaTarea():void
+    +editarTarea(tarea:Tarea):void
+    +editarPorcentajeAvance(tarea:Tarea):void
+    +asignarPrioridadTarea(tarea:Tarea):Prioridad
+    +marcarTareaCompleta():TareaCompleta
+    +eliminarTarea(tarea:Tarea[]):void
+    +organizarTareasPorCategoria():Tarea
+    +añadirTag():string
+    
+}
+
+interface Ordenar{
+    ordenarTarea(tareas:Tarea[]):void
+}
+
+
+class Tarea implements Ordenar{
+    
+    -titulo:string
+    -descripcion:string
+    -porcentajeAvance:number
+    -prioridad:Prioridad
+    -tag:string
+    -fechaVencimientoTarea:Date??
+
+    +setTitulo():void
+    +setDescripcion():void
+    +setFechaVencimiento():void
+    +setPrioridad():void
+    +setTag():void
+
+
+}
+
+class Pendiente extends Tarea{
+
+}
+
+class Completada extends Tarea{
+    
+}
+
+'Relaciones
+App *-- Usuario
+App *-- Tarea
+App *-left- Estadistica
+
+Prioridad --* Tarea
+Usuario -right->Tarea
+
+
+
+@enduml
