@@ -1,0 +1,113 @@
+
+
+@startuml TaskList
+
+
+class App{
+
+    -tareas:Tarea[]
+
+    +crearTarea():Tarea
+    +editarTarea(tarea:Tarea,parametro:??,valor:??):void
+    +eliminarTarea(tarea:Tarea):void
+    +ordenarTareas(tareas:Tarea[]):void
+    +buscarTareaPor(tarea:Tarea,valorAbuscar): Tarea
+
+
+    +organizarTareasPorCategoria():Tarea
+    
+    +existeTarea (tarea:Tarea):bool
+}
+
+class Estadistica{
+
+    -tareasCompletadas(tareas:Tarea[]): void
+    -tareasPendientes(tareas:Tarea[]): void
+
+    -tazaFinalizacionTarea(tarea:Tarea):number
+    -tiempoDedicadoATarea(tarea:Tarea):number
+
+}
+
+enum estadoTarea{
+    COMPLETADO
+    PENDIENTE
+}
+
+enum PrioridadTarea{
+    ALTA
+    MEDIA
+    BAJA
+}
+
+enum ParametroTarea{
+    TITULO
+    DESCRIPCION
+    PORCENTAJE_AVANCE
+    PRIORIDAD
+    ETIQUETAS
+    FECHA_VENCIMIENTO
+}
+
+
+class Tarea implements PrioridadTarea,ParametroTarea,estadoTarea{
+    
+    -titulo:string
+    -descripcion:string
+    -porcentajeAvance:number
+    -prioridad:Prioridad
+    -etiquetas:[Etiqueta] 
+    -estado: number
+    -fechaVencimientoTarea:number
+
+    +setterGetters()
+    
+    +añadirEtiqueta(etiqueta:Etiqueta):void
+    +eliminarEtiqueta(etiqueta:Etiqueta):void
+    +marcarTareaCompleta():void
+}
+
+
+class Etiqueta { 
+    -Id : number
+
+}
+
+abstract class Categoria extends Etiqueta {
+    -categoria : string
+    +añadirCategoriaTarea (tarea : Tarea) : void
+}
+
+Class CatTrabajo extends Categoria{
+    -categoria = "trabajo"
+}
+
+Class CatRecado extends Categoria{
+    -categoria = "recado"
+}
+
+Class Personal extends Categoria{
+    -categoria = "personal"
+}
+
+
+'Relaciones
+App *-right- Tarea
+App *-left- Estadistica
+
+Etiqueta -left-* Tarea
+
+note right of Etiqueta
+  ver de reformular
+end note
+
+note right of Etiqueta::Id
+  servira?
+end note
+
+note right of Tarea::etiquetas
+ set
+end note
+
+
+@enduml
