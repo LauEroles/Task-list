@@ -49,8 +49,13 @@ enum ParametroTarea{
     FECHA_VENCIMIENTO
 }
 
+interface Fecha {
+    dia :  number
+    mes :  number
+    año :  number
+}
 
-class Tarea implements PrioridadTarea,ParametroTarea,estadoTarea{
+class Tarea implements PrioridadTarea,ParametroTarea,estadoTarea,Fecha{
     
     -titulo:string
     -descripcion:string
@@ -58,7 +63,7 @@ class Tarea implements PrioridadTarea,ParametroTarea,estadoTarea{
     -prioridad:Prioridad
     -etiquetas:[Etiqueta] 
     -estado: number
-    -fechaVencimientoTarea:number
+    -fechaVencimientoTarea:Fecha
 
     +setterGetters()
     
