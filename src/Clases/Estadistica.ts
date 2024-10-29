@@ -9,7 +9,7 @@ export default class Estadistica{
     public TareasPendientes(tareas : Tarea[]) :void{
 
     }
-
+    
 
     public tazaFinalizacionTarea(tarea : Tarea) :number{
 
