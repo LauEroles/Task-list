@@ -8,7 +8,7 @@ class App{
     -tareas:Tarea[]
 
     +crearTarea():Tarea
-    +editarTarea(tarea:Tarea,parametro:??,valor:??):void
+    +editarTarea(tarea:Tarea,parametro:parametroTarea,valor:??):void
     +eliminarTarea(tarea:Tarea):void
     +ordenarTareas(tareas:Tarea[]):void
     +buscarTareaPor(tarea:Tarea,valorAbuscar): Tarea
@@ -21,11 +21,11 @@ class App{
 
 class Estadistica{
 
-    -tareasCompletadas(tareas:Tarea[]): void
-    -tareasPendientes(tareas:Tarea[]): void
+    +tareasCompletadas(tareas:Tarea[]): void
+    +tareasPendientes(tareas:Tarea[]): void
 
-    -tazaFinalizacionTarea(tarea:Tarea):number
-    -tiempoDedicadoATarea(tarea:Tarea):number
+    +tazaFinalizacionTarea(tarea:Tarea):number
+    +tiempoDedicadoATarea(tarea:Tarea):number
 
 }
 
@@ -55,6 +55,12 @@ interface Fecha {
     año :  number
 }
 
+enum TipoCategoria{
+    TRABAJO 
+    RECADO
+    PERSONAL
+}
+
 class Tarea implements PrioridadTarea,ParametroTarea,estadoTarea,Fecha{
     
     -titulo:string
@@ -78,27 +84,28 @@ class Etiqueta {
 
 }
 
-abstract class Categoria extends Etiqueta {
+abstract class Categoria extends Etiqueta implements TipoCategoria {
     -categoria : string
     +añadirCategoriaTarea (tarea : Tarea) : void
 }
 
 Class CatTrabajo extends Categoria{
-    -categoria = "trabajo"
+    -categoria = categoria.TRABAJO
 }
 
 Class CatRecado extends Categoria{
-    -categoria = "recado"
+    -categoria = categoria.RECADO
 }
 
 Class Personal extends Categoria{
-    -categoria = "personal"
+    -categoria = categoria.PERSONAL
 }
 
 
 'Relaciones
 App *-right- Tarea
 App *-left- Estadistica
+Categoria .right.> TipoCategoria
 
 Etiqueta -left-* Tarea
 
