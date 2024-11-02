@@ -1,83 +1,119 @@
+
+
 @startuml TaskList
 
 
 class App{
 
     -tareas:Tarea[]
-    -estadisticas:Estadistica[]
-    +creacionTareas():Tarea
-    +priorizarTarea(tareas Tarea[]): number
-    +buscarTituloTarea(tareas:Tarea):string
-    +buscarFechaVencimiento(tareas:Tarea):Date
-    +recordatorioTarea():Tarea
 
+    +crearTarea():Tarea
+    +editarTarea(tarea:Tarea,parametro:parametroTarea,valor:??):void
+    +eliminarTarea(tarea:Tarea):void
+    +ordenarTareas(tareas:Tarea[]):void
+    +buscarTareaPor(tarea:Tarea,valorAbuscar): Tarea
+
+
+    +organizarTareasPorCategoria():Tarea
+    
+    +existeTarea (tarea:Tarea):bool
 }
 
+class GestorDeArchivos{
+
+}
 
 class Estadistica{
-    -tazaFinalizacionTarea:number
-    -tiempoDedicadoATarea:number
+
+    +tareasCompletadas(tareas:Tarea[]): void
+    +tareasPendientes(tareas:Tarea[]): void
+
+    +tazaFinalizacionTarea(tarea:Tarea):number
+    +tiempoDedicadoATarea(tarea:Tarea):number
 
 }
 
-
-class Prioridad{
-    -nivelPrioridad:number
-
+enum EstadoTarea{
+    COMPLETADO
+    PENDIENTE
 }
 
-class Usuario{
-
-    -tareas: Tarea[]
-    +añadirNuevaTarea():void
-    +editarTarea(tarea:Tarea):void
-    +editarPorcentajeAvance(tarea:Tarea):void
-    +asignarPrioridadTarea(tarea:Tarea):Prioridad
-    +marcarTareaCompleta():TareaCompleta
-    +eliminarTarea(tarea:Tarea[]):void
-    +organizarTareasPorCategoria():Tarea
-    +añadirTag():string
-    
+enum PrioridadTarea{
+    ALTA
+    MEDIA
+    BAJA
 }
 
-interface Ordenar{
-    ordenarTarea(tareas:Tarea[]):void
+enum TipoCategoria{
+    TRABAJO 
+    RECADO
+    PERSONAL
 }
 
-
-class Tarea implements Ordenar{
+class Tarea {
     
     -titulo:string
     -descripcion:string
     -porcentajeAvance:number
     -prioridad:Prioridad
-    -tag:string
-    -fechaVencimientoTarea:Date??
+    -etiquetas:[Etiqueta] 
+    -estado: number
+    -fechaVencimientoTarea: Date
+    -estadoTarea: EstadoTarea
+    -prioridadTarea: PrioridadTarea
 
-    +setTitulo():void
-    +setDescripcion():void
-    +setFechaVencimiento():void
-    +setPrioridad():void
-    +setTag():void
-
-
-}
-
-class Pendiente extends Tarea{
-
-}
-
-class Completada extends Tarea{
+    +setterGetters()
     
+    +añadirEtiqueta(etiqueta:Etiqueta):void
+    +eliminarEtiqueta(etiqueta:Etiqueta):void
+    +marcarTareaCompleta():void
 }
+
+
+class Etiqueta { 
+    -Id : number
+
+}
+
+abstract class Categoria extends Etiqueta {
+    -categoria : TipoCategoria
+    +añadirCategoriaTarea (tarea : Tarea) : void
+}
+
+Class CatTrabajo extends Categoria{
+    -categoria = categoria.TRABAJO
+}
+
+Class CatRecado extends Categoria{
+    -categoria = categoria.RECADO
+}
+
+Class Personal extends Categoria{
+    -categoria = categoria.PERSONAL
+}
+
 
 'Relaciones
-App *-- Usuario
-App *-- Tarea
+App *-right- Tarea
+Tarea -up-> PrioridadTarea
+Tarea -up-> EstadoTarea
 App *-left- Estadistica
+Categoria -right-> TipoCategoria
+App -up-> GestorDeArchivos
 
-Prioridad --* Tarea
-Usuario -right->Tarea
+Etiqueta -left-* Tarea
+
+note right of Etiqueta
+    ver de reformular
+end note
+
+note right of Etiqueta::Id
+    servira?
+end note
+
+note right of Tarea::etiquetas
+    set
+end note
 
 
 
