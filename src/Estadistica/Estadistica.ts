@@ -1,21 +1,36 @@
-//agregar import de clase tarea cuando este creado.
+
+import { EstadoTarea } from "../Tarea/Enumeradores/estadoTarea";
+import Tarea from "../Tarea/Tarea";
 
 export default class Estadistica{
+
+    public tareasCompletadas(tareas : Tarea[]) :Tarea[] {
+
+        return this.filtrarEstadoTareasPor(tareas,EstadoTarea.COMPLETADO);
+    }
+
+    public TareasPendientes(tareas : Tarea[]) :Tarea[]{
+
+        return this.filtrarEstadoTareasPor(tareas,EstadoTarea.PENDIENTE);
+    }
     
-    public tareasCompletadas(tareas : Tarea[]) :void {
-
+    //a desarrollar con date una vez implementado..
+    public tazaFinalizacionTarea(tarea : Tarea) : number{   
+        return 1;
     }
 
-    public TareasPendientes(tareas : Tarea[]) :void{
-
-    }
-    
-
-    public tazaFinalizacionTarea(tarea : Tarea) :number{
-
+    public tiempoDedicadoATarea(tarea : Tarea) : number{
+        return 1;
     }
 
-    public tiempoDedicadoATarea(tarea : Tarea) :number{
+    private filtrarEstadoTareasPor (tareas: Tarea[],filtro : string){ //revisitar
+        
+        let tareasFiltradas : Tarea[] = 
+        
+        tareas.filter((tarea)=> {
+            tarea.EstadoTarea() = filtro;
+        }) 
 
+        return tareasFiltradas;
     }
 }
