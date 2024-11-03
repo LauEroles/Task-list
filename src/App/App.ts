@@ -1,3 +1,4 @@
+
 import Estadistica from "../Estadistica/Estadistica";
 import Tarea from "../Tarea/Tarea";
 import List from "../-- Nodos/List";
@@ -14,16 +15,18 @@ export class App{
 
     public agregarTarea(): List<Tarea> {
 
-        // Hacerlo con List 
-        //const tarea1 = new Tarea ();
-        //return this.tareas.push(tarea1);
+        //Ver de hacer sobrecarga que inicialice el constructor con
+        //valor de titulo por default como unico valor necesario
+        const tarea1 = new Tarea();
+        this.tareas.push(tarea1);
+        return this.tareas;
        
     }
 
 
     //Vamos a revisarla bien, podemos pasar un objeto dentro de un map para
     //setear los parámetros que debamos modificar
-    public editarTarea(tarea:Map<Tarea,Key>):void{
+    public editarTarea(tarea:Tarea):void{
 
     }
 

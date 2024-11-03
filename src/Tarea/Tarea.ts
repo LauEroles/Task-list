@@ -7,11 +7,11 @@ export default class Tarea {
     private prioridad: Prioridad;
     private etiquetas: Etiqueta[];
     private estado: number;
-    private fechaVencimiento: Fecha;
+    private fechaVencimiento: Date;
 
     constructor(
         titulo: string, descripcion: string, porcentajeAvance: number, 
-        prioridad: Prioridad, etiquetas: Etiqueta[], estado: number, fechaVencimiento: Fecha
+        prioridad: Prioridad, etiquetas: Etiqueta[], estado: number, fechaVencimiento: Date
     ) {
         this.titulo = titulo;
         this.descripcion = descripcion;
