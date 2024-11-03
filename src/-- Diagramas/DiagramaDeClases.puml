@@ -56,7 +56,7 @@ class Tarea {
     -descripcion:string
     -porcentajeAvance:number
     -prioridad:Prioridad
-    -etiquetas:[Etiqueta] 
+    -etiquetas:Etiqueta[] 
     -estado: number
     -fechaVencimientoTarea: Date
     -estadoTarea: EstadoTarea
@@ -100,8 +100,7 @@ Tarea -up-> EstadoTarea
 App *-left- Estadistica
 Categoria -right-> TipoCategoria
 App -up-> GestorDeArchivos
-
-Etiqueta -left-* Tarea
+Tarea -down->Etiqueta
 
 note right of Etiqueta
     ver de reformular
