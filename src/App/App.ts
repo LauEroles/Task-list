@@ -4,8 +4,8 @@ import Tarea from "../Tarea/Tarea";
 import List from "../-- Nodos/List";
 
 export class App{
-
-    private tareas: List<Tarea>;
+    
+    private tareas: List<Tarea>; //reemplazar con Map<number,Tarea> (idTarea,tarea)
     private estadisticas: List<Estadistica>;
 
     constructor(tareas: List<Tarea>,estadisticas:List<Estadistica>) {
@@ -26,8 +26,20 @@ export class App{
 
     //Vamos a revisarla bien, podemos pasar un objeto dentro de un map para
     //setear los parámetros que debamos modificar
-    public editarTarea(tarea:Tarea):void{
+    
+    public editarTarea(tarea:Tarea):void{ 
+        //como no es una API, la modificacion de la tarea sale de la tarea en si, podemos recibir la tarea y actualizarla en el map.
+        // en un mapa si ya existe la entrada, en este caso el ID, la updatea con el nuevo valor(objeto). seria mas un actualizarTarea.
+        //y si no la tenemos la agregamos al map.
+        let idTarea = tarea.getId();
 
+        if(this.tareas.has(idTarea)){
+
+            this.tareas.set(idTarea,tarea);
+
+        } else this.agregarTarea(tarea);
+        
+        return;
     }
 
 
