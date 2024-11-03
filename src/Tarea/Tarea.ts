@@ -1,17 +1,18 @@
 import Etiqueta from "../Etiqueta/Etiqueta";
+import { PrioridadTarea } from "./Enumeradores/prioridadTarea";
 
 export default class Tarea {
     private titulo: string;
     private descripcion: string;
     private porcentajeAvance: number;
-    private prioridad: Prioridad;
+    private prioridad: PrioridadTarea;
     private etiquetas: Etiqueta[];
     private estado: number;
     private fechaVencimiento: Date;
 
     constructor(
         titulo: string, descripcion: string, porcentajeAvance: number, 
-        prioridad: Prioridad, etiquetas: Etiqueta[], estado: number, fechaVencimiento: Date
+        prioridad: PrioridadTarea, etiquetas: Etiqueta[], estado: number, fechaVencimiento: Date
     ) {
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -35,7 +36,7 @@ export default class Tarea {
         return this.porcentajeAvance;
     }
 
-    public getPrioridad(): Prioridad {
+    public getPrioridad(): PrioridadTarea {
         return this.prioridad;
     }
 
@@ -47,7 +48,7 @@ export default class Tarea {
         return this.estado;
     }
 
-    public getFechaVencimiento(): Fecha {
+    public getFechaVencimiento(): Date {
         return this.fechaVencimiento;
     }
 
@@ -64,7 +65,7 @@ export default class Tarea {
         this.porcentajeAvance = porcentajeAvance;
     }
 
-    public setPrioridad(prioridad: Prioridad): void {
+    public setPrioridad(prioridad: PrioridadTarea): void {
         this.prioridad = prioridad;
     }
 
@@ -76,7 +77,7 @@ export default class Tarea {
         this.estado = estado;
     }
 
-    public setFechaVencimiento(fechaVencimiento: Fecha): void {
+    public setFechaVencimiento(fechaVencimiento: Date): void {
         this.fechaVencimiento = fechaVencimiento;
     }
 
