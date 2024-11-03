@@ -1,8 +1,11 @@
 
+import GestorFecha from "../GestorFecha/GestorFecha";
 import { EstadoTarea } from "../Tarea/Enumeradores/estadoTarea";
 import Tarea from "../Tarea/Tarea";
 
 export default class Estadistica{
+
+    private gestorFecha = new GestorFecha();
 
     public tareasCompletadas(tareas : Tarea[]) :Tarea[] {
 
@@ -14,13 +17,31 @@ export default class Estadistica{
         return this.filtrarEstadoTareasPor(tareas,EstadoTarea.PENDIENTE);
     }
     
-    //a desarrollar con date una vez implementado..
-    public tazaFinalizacionTarea(tarea : Tarea) : number{   
-        return 1;
+    public tazaFinalizacionTareas(tareas : Tarea[]) : number{   // % Cant tareas finalizadas
+        
+        let cantidadTareas : number = tareas.length;
+        let cantidadFinalizada : number = this.tareasCompletadas(tareas).length;
+        
+        return cantidadTareas / cantidadFinalizada; //agregar try catch por division 0?
+    }
+
+    public tiempoDedicadoATareas(tareas : Tarea[]) : number{
+        let tiempoDedicado : number = 0;
+
+        tareas.forEach((tarea)=> {
+            tiempoDedicado += this.tiempoDedicadoATarea(tarea);
+        });
+
+        return tiempoDedicado;
     }
 
     public tiempoDedicadoATarea(tarea : Tarea) : number{
-        return 1;
+
+        let fechaInicio : Date = tarea.getFechaInicio();
+
+        let tiempoDedicado : number = this.gestorFecha.tiempoTranscurridoEnMilisegundos(fechaInicio);
+
+        return tiempoDedicado;
     }
 
     private filtrarEstadoTareasPor (tareas: Tarea[],filtro : string){ //revisitar
