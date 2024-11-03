@@ -1,4 +1,6 @@
-class List<T> {
+import MyNode from "../-- Nodos/MyNode";
+
+export default class List<T> {
     
     private head: MyNode<T>;
     

@@ -1,5 +1,4 @@
-class MyNode<T> 
-{
+export default class MyNode<T>{
     private _value: T;
     private _next: MyNode<T>;
 

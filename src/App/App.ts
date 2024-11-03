@@ -1,23 +1,29 @@
-import Estadistica from "./Estadistica";
+import Estadistica from "../Estadistica/Estadistica";
+import Tarea from "../Tarea/Tarea";
+import List from "../-- Nodos/List";
 
 export class App{
 
-    private tareas: Tarea[];
-    private estadisticas: Estadistica[];
+    private tareas: List<Tarea>;
+    private estadisticas: List<Estadistica>;
 
-    constructor(tareas: Tarea[],estadisticas:Estadistica[]) {
+    constructor(tareas: List<Tarea>,estadisticas:List<Estadistica>) {
         this.tareas = tareas;
         this.estadisticas = estadisticas;
     }
 
-    public agregarTarea():Tarea[]{
+    public agregarTarea(): List<Tarea> {
+
         // Hacerlo con List 
-        // let tarea1 = new Tarea();
-        // return this.tareas.add(tarea1);
+        //const tarea1 = new Tarea ();
+        //return this.tareas.push(tarea1);
+       
     }
 
 
-    public editarTarea(tarea:Tarea,parametro:parametroTarea):void{
+    //Vamos a revisarla bien, podemos pasar un objeto dentro de un map para
+    //setear los parámetros que debamos modificar
+    public editarTarea(tarea:Map<Tarea,Key>):void{
 
     }
 
