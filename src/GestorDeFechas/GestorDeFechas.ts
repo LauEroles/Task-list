@@ -1,7 +1,7 @@
 
 //esta clase nos permitira manipular con mayor facilidad los objetos nativos de tipo Date
 
-export default class GestorFecha {
+export default class GestorDeFechas {
 
     public diaFecha(fecha:Date):Number {
         return fecha.getDate();
