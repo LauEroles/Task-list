@@ -28,8 +28,8 @@ export default class Estadistica{
         let tareasFiltradas : Tarea[] = 
         
         tareas.filter((tarea)=> {
-            tarea.EstadoTarea() = filtro;
-        }) 
+            tarea.getEstado() === filtro;
+        });
 
         return tareasFiltradas;
     }
