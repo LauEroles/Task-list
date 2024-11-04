@@ -2,25 +2,36 @@
 import Estadistica from "../Estadistica/Estadistica";
 import Tarea from "../Tarea/Tarea";
 import List from "../-- Nodos/List";
+import { PrioridadTarea } from "../Tarea/Enumeradores/prioridadTarea";
+import Etiqueta from "../Etiqueta/Etiqueta";
 
 export class App{
     
-    private tareas: List<Tarea>; //reemplazar con Map<number,Tarea> (idTarea,tarea)
-    private estadisticas: List<Estadistica>;
+    private tareas: Map<number, Tarea> ;
 
-    constructor(tareas: List<Tarea>,estadisticas:List<Estadistica>) {
+
+    constructor(tareas: Map<number,Tarea>) {
+        
         this.tareas = tareas;
-        this.estadisticas = estadisticas;
+
     }
 
-    public agregarTarea(): List<Tarea> {
 
-        //Ver de hacer sobrecarga que inicialice el constructor con
-        //valor de titulo por default como unico valor necesario
-        const tarea1 = new Tarea();
-        this.tareas.push(tarea1);
-        return this.tareas;
-       
+    
+    public agregarTarea(tituloTarea:string): Tarea {
+        
+        //Genero el id  con una funcion, teniendo en cuenta el MaxId para no
+        //repetir ni pisaer valores de Id
+        let id: number =this.crearNuevoIdTarea();
+
+        const nuevaTarea=new Tarea(id, tituloTarea);        
+       //carga la tarea en el Map
+        this.tareas.set(id,nuevaTarea);
+
+        //devuelvo la nueva tarea con los valores por default de 
+        //id y titulo
+        //Luego en editar tarea tengo que setear los otros valores
+        return nuevaTarea;
     }
 
 
@@ -31,30 +42,35 @@ export class App{
         //como no es una API, la modificacion de la tarea sale de la tarea en si, podemos recibir la tarea y actualizarla en el map.
         // en un mapa si ya existe la entrada, en este caso el ID, la updatea con el nuevo valor(objeto). seria mas un actualizarTarea.
         //y si no la tenemos la agregamos al map.
+       
         let idTarea = tarea.getId();
 
         if(this.tareas.has(idTarea)){
 
             this.tareas.set(idTarea,tarea);
 
-        } else this.agregarTarea(tarea);
+        }  //TODO: Aqui no le agregaria la tarea sino que tiraria una excepción
+        //Revisar
+        // else this.agregarTarea(tarea);
         
-        return;
     }
 
 
     public eliminarTarea(tarea:Tarea):void{
-        //pop tarea de la lista ver como gestionamos
-        //e implementamos el tema del ordenamiento
-        //Me parece que lo mas natural es manejarlo con List
         
+        //si no lo puede eliminar es porque no existe y hago una excepcion
+        if(!this.tareas.delete(tarea.getId())) {
+            //TODO: hacer manejor de excepcion 
+
+        }
     }
 
     public ordenarTareas(tareas:Tarea[]):void{
 
     }
 
-    public buscarTareaPor(tarea:Tarea,valorAbuscar): Tarea{
+    public buscarTareaPorId(id: number): Tarea{
+    
 
     }
 
@@ -67,5 +83,19 @@ export class App{
 
     }
 
+    private obtenerMaxIdTarea():number{
+        let maxId=0;
 
+        this.tareas.forEach((_tarea,idTarea)=>{
+            if(idTarea>maxId){
+                maxId=idTarea;
+            }
+        })
+        return maxId;     
+    }
+
+    private crearNuevoIdTarea():number{
+        let nuevoIdTarea=this.obtenerMaxIdTarea()+1;
+        return nuevoIdTarea;
+    }
 }

@@ -1,29 +1,35 @@
 import Etiqueta from "../Etiqueta/Etiqueta";
+import { EstadoTarea } from "./Enumeradores/estadoTarea";
 import { PrioridadTarea } from "./Enumeradores/prioridadTarea";
 
 export default class Tarea {
+    private id: number;
     private titulo: string;
     private descripcion: string;
     private porcentajeAvance: number;
     private prioridad: PrioridadTarea;
     private etiquetas: Etiqueta[];
-    private estado: number;
+    private estado: EstadoTarea;
     private fechaVencimiento: Date;
 
-    constructor(
-        titulo: string, descripcion: string, porcentajeAvance: number, 
-        prioridad: PrioridadTarea, etiquetas: Etiqueta[], estado: number, fechaVencimiento: Date
-    ) {
+    constructor(id: number, titulo: string) {
+        this.id = id;
         this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.porcentajeAvance = porcentajeAvance;
-        this.prioridad = prioridad;
-        this.etiquetas = etiquetas;
-        this.estado = estado;
-        this.fechaVencimiento = fechaVencimiento;
+        this.descripcion = "";
+        this.porcentajeAvance = 0;
+        this.prioridad = PrioridadTarea.BAJA;
+        this.etiquetas = [];
+        this.estado = EstadoTarea.PENDIENTE;
+        this.fechaVencimiento = new Date(Date.now());
     }
 
+
+
     // Getters
+    public getId(): number {
+        return this.id;
+    }
+    
     public getTitulo(): string {
         return this.titulo;
     }
@@ -44,7 +50,7 @@ export default class Tarea {
         return this.etiquetas;
     }
 
-    public getEstado(): number {
+    public getEstado(): EstadoTarea{
         return this.estado;
     }
 
@@ -73,7 +79,7 @@ export default class Tarea {
         this.etiquetas = etiquetas;
     }
 
-    public setEstado(estado: number): void {
+    public setEstado(estado: EstadoTarea): void {
         this.estado = estado;
     }
 

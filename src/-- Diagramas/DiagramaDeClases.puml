@@ -68,7 +68,7 @@ enum TipoCategoria{
 
 class Tarea {
     
-    -titulo:string
+     -titulo:string
     -descripcion:string
     -porcentajeAvance:number
     -prioridad:Prioridad
@@ -77,9 +77,7 @@ class Tarea {
     -fechaVencimientoTarea: Date
     -estadoTarea: EstadoTarea
     -prioridadTarea: PrioridadTarea
-
     +setterGetters()
-    
     +añadirEtiqueta(etiqueta:Etiqueta):void
     +eliminarEtiqueta(etiqueta:Etiqueta):void
     +marcarTareaCompleta():void
@@ -120,11 +118,23 @@ Tarea -up-> EstadoTarea
 Tarea -down->Etiqueta
 
 Categoria -right-> TipoCategoria
-
 Estadistica -down-> GestorDeFechas 
 
-note left of Etiqueta
-    ver de reformular
+
+note right of Tarea
+    los parametros de Tarea pueden pasar 
+    como otro objeto y en la tarea directamente 
+    instanciamos un mapa de ParametroTarea,
+    a partir de ahí será mas sencillo para 
+    los metodos editar Tarea, recibir una tarea y editar
+    Ver el otro diseño en diagrama2
+end note
+
+note left of Categoria
+    ver de reformular.
+    Creo que no es necesaria 
+    la clase Categoria,
+
 end note
 
 note right of Etiqueta::Id
