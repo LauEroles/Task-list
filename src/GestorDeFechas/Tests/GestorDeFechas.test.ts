@@ -43,9 +43,11 @@ describe ("Tests clase GestorDeFecha", () => {
   
     })
 
-    test ("capturar tiempo Transcurrido En Milisegundos Correcto", ()=>{
-        let fechaInicio :Date = new Date (1998,3,14)
-        expect(gestorDeFechas.tiempoTranscurridoEnMilisegundos(fechaInicio)).toEqual(1);
+    test ("capturar años Transcurridos de Milisegundos Correcto", ()=>{
+        let fechaInicio :Date = new Date (1998,3,14);
+        let milisegundos : number = gestorDeFechas.tiempoTranscurridoEnMilisegundos(fechaInicio);
+        let años : number = gestorDeFechas.milisegundosAAño(milisegundos);
+        expect(años).toEqual(26);
         
     })
 
@@ -56,7 +58,7 @@ describe ("Tests clase GestorDeFecha", () => {
         expect(gestorDeFechas.nuevaFecha(14,4,1998)).toEqual(fechaDate);
   
     })
-
+    
 })
 
 /*
