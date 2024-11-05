@@ -20,7 +20,7 @@ export default class GestorDeFechas {
     }
 
     public nuevaFecha(dia:number,mes:number,año:number):Date {  //validacion de fecha? un poco ya tiene el date
-        return new Date(año,mes,dia);
+        return new Date(año,mes+1,dia); //Date usa el mes de 0 a 11, lo transformamos de 1 a 12 para que sea mas natural
     }
 
     public tiempoTranscurridoEnMilisegundos(fechaInicio:Date):number{

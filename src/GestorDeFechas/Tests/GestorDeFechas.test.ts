@@ -13,41 +13,51 @@ describe ("Tests clase GestorDeFecha", () => {
 
     test ("capturar Fecha actual correcta", ()=>{
 
-      expect(gestorDeFechas.capturarFechaActual())toEqual.(new Date(Date.now()));
+        let fechaActual:Date = new Date(Date.now());
+
+        expect(gestorDeFechas.capturarFechaActual()).toEqual(fechaActual);
 
     })
 
     test ("capturar dia Correcto", ()=>{
 
-        expect(gestorDeFechas.())toEqual.();
+        let diaCatorce :Date = new Date (1998,3,14)
+
+        expect(gestorDeFechas.diaFecha(diaCatorce)).toEqual(14);
   
     })
 
     test ("capturar mes Correcto", ()=>{
 
-        expect(gestorDeFechas.())toEqual.();
+        let mesAbril :Date = new Date (1998,3,14)
+
+        expect(gestorDeFechas.mesFecha(mesAbril)).toEqual(3); //Date toma los meses desde 0 a 11
   
     })
 
     test ("capturar año Correcto", ()=>{
 
-        expect(gestorDeFechas.())toEqual.();
+        let añoNoventaYOcho :Date = new Date (1998,3,14)
+
+        expect(gestorDeFechas.añoFecha(añoNoventaYOcho)).toEqual(1998);
   
     })
 
     test ("capturar tiempo Transcurrido En Milisegundos Correcto", ()=>{
-
-        expect(gestorDeFechas.())toEqual.();
-  
+        let fechaInicio :Date = new Date (1998,3,14)
+        expect(gestorDeFechas.tiempoTranscurridoEnMilisegundos(fechaInicio)).toEqual(1);
+        
     })
 
     test ("capturar fecha nueva Correcta", ()=>{
 
-        expect(gestorDeFechas.())toEqual.();
+        let fechaDate :Date = new Date (1998,3,14)
+
+        expect(gestorDeFechas.nuevaFecha(14,4,1998)).toEqual(fechaDate);
   
     })
 
-}
+})
 
 /*
 +diaFecha(fecha:Date):Number
