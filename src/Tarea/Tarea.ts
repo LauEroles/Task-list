@@ -12,7 +12,7 @@ export default class Tarea {
     private estado: EstadoTarea;
     private fechaVencimiento: Date;
 
-    constructor(id: number, titulo: string) {
+    constructor(id: number, titulo: string) { //el Id tarea tendria que salir de otro lado.
         this.id = id;
         this.titulo = titulo;
         this.descripcion = "";
