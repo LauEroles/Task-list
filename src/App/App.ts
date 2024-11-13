@@ -10,7 +10,7 @@ export class App{
     private tareas: Map<number, Tarea> ;
 
 
-    constructor(tareas: Map<number,Tarea>) {
+    constructor(tareas: Map<number,Tarea>) {    //y si arranca vacio?
         
         this.tareas = tareas;
 
@@ -60,7 +60,7 @@ export class App{
         
         //si no lo puede eliminar es porque no existe y hago una excepcion
         if(!this.tareas.delete(tarea.getId())) {
-            //TODO: hacer manejor de excepcion 
+            //TODO: hacer manejo de excepcion 
 
         }
     }
@@ -74,7 +74,6 @@ export class App{
     public buscarTareaPorId(id: number): Tarea{
         let t=new Tarea(12,"tt")
         return t;
-
     }
 
     //TODO
@@ -85,23 +84,29 @@ export class App{
 
     //TODO
     public existeTarea (tarea:Tarea):boolean{
-        return false;
+        return this.tareas.has(tarea.getId());
     }
 
     
     private obtenerMaxIdTarea():number{
+
         let maxId=0;
 
         this.tareas.forEach((_tarea,idTarea)=>{
+
             if(idTarea>maxId){
+
                 maxId=idTarea;
             }
         })
+
         return maxId;     
     }
 
-    private crearNuevoIdTarea():number{
+    private crearNuevoIdTarea():number{ //private?
+
         let nuevoIdTarea=this.obtenerMaxIdTarea()+1;
+
         return nuevoIdTarea;
     }
 }

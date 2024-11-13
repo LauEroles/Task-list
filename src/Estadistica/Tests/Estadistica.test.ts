@@ -6,4 +6,4 @@ describe ("Tests clase Estadistica", () => {
 
     
 
-}
+})

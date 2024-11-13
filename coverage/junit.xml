@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="7.844">
+  <testsuite name="Tests clase GestorDeFecha" errors="0" failures="0" skipped="0" timestamp="2024-11-05T03:21:47" time="6.518" tests="6">
+    <testcase classname="Tests clase GestorDeFecha capturar Fecha actual correcta capturar Fecha actual correcta" name="Tests clase GestorDeFecha capturar Fecha actual correcta capturar Fecha actual correcta" time="0.01">
+    </testcase>
+    <testcase classname="Tests clase GestorDeFecha capturar dia Correcto capturar dia Correcto" name="Tests clase GestorDeFecha capturar dia Correcto capturar dia Correcto" time="0.003">
+    </testcase>
+    <testcase classname="Tests clase GestorDeFecha capturar mes Correcto capturar mes Correcto" name="Tests clase GestorDeFecha capturar mes Correcto capturar mes Correcto" time="0.002">
+    </testcase>
+    <testcase classname="Tests clase GestorDeFecha capturar año Correcto capturar año Correcto" name="Tests clase GestorDeFecha capturar año Correcto capturar año Correcto" time="0.002">
+    </testcase>
+    <testcase classname="Tests clase GestorDeFecha capturar años Transcurridos de Milisegundos Correcto capturar años Transcurridos de Milisegundos Correcto" name="Tests clase GestorDeFecha capturar años Transcurridos de Milisegundos Correcto capturar años Transcurridos de Milisegundos Correcto" time="0.002">
+    </testcase>
+    <testcase classname="Tests clase GestorDeFecha capturar fecha nueva Correcta capturar fecha nueva Correcta" name="Tests clase GestorDeFecha capturar fecha nueva Correcta capturar fecha nueva Correcta" time="0.002">
+    </testcase>
+  </testsuite>
+</testsuites>
