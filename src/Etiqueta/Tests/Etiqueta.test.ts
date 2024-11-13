@@ -1,6 +1,0 @@
-
-describe ("Tests clase Etiqueta", () => { 
-
-
-    
-})

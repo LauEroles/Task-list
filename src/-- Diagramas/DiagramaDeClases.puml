@@ -60,11 +60,6 @@ enum PrioridadTarea{
     BAJA
 }
 
-enum TipoCategoria{
-    TRABAJO 
-    RECADO
-    PERSONAL
-}
 
 class Tarea {
     
@@ -72,7 +67,7 @@ class Tarea {
     -descripcion:string
     -porcentajeAvance:number
     -prioridad:Prioridad
-    -etiquetas:Etiqueta[] 
+    -etiquetas:string[] 
     -estado: number
     -fechaVencimientoTarea: Date
     -estadoTarea: EstadoTarea
@@ -83,28 +78,6 @@ class Tarea {
     +marcarTareaCompleta():void
 }
 
-
-class Etiqueta { 
-    -Id : number
-
-}
-
-abstract class Categoria extends Etiqueta {
-    -categoria : TipoCategoria
-    +añadirCategoriaTarea (tarea : Tarea) : void
-}
-
-Class CatTrabajo extends Categoria{
-    -categoria = categoria.TRABAJO
-}
-
-Class CatRecado extends Categoria{
-    -categoria = categoria.RECADO
-}
-
-Class Personal extends Categoria{
-    -categoria = categoria.PERSONAL
-}
 
 
 'Relaciones
@@ -117,29 +90,14 @@ Tarea -up-> PrioridadTarea
 Tarea -up-> EstadoTarea
 Tarea -down->Etiqueta
 
-Categoria -right-> TipoCategoria
 Estadistica -down-> GestorDeFechas 
 
 
 note right of Tarea
-    los parametros de Tarea pueden pasar 
-    como otro objeto y en la tarea directamente 
-    instanciamos un mapa de ParametroTarea,
-    a partir de ahí será mas sencillo para 
-    los metodos editar Tarea, recibir una tarea y editar
-    Ver el otro diseño en diagrama2
-end note
-
-note left of Categoria
-    ver de reformular.
-    Creo que no es necesaria 
-    la clase Categoria,
+    Profe aqui podemos aplicar patron de diseño builder?
 
 end note
 
-note right of Etiqueta::Id
-    servira?
-end note
 
 note right of Tarea::etiquetas
     set
