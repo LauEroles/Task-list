@@ -65,25 +65,29 @@ export class App{
         }
     }
 
+    //TODO
     public ordenarTareas(tareas:Tarea[]):void{
 
     }
 
+    //TODO
     public buscarTareaPorId(id: number): Tarea{
-    
+        let t=new Tarea(12,"tt")
+        return t;
     }
 
-    public organizarTareasPorCategoria():Tarea{ //devolveria el mapa ordenado?
-
+    //TODO
+    public organizarTareasPorCategoria():Tarea{
+        let t=new Tarea(12,"tt")
+        return t;
     }
 
-    
+    //TODO
     public existeTarea (tarea:Tarea):boolean{
-        
         return this.tareas.has(tarea.getId());
-
     }
 
+    
     private obtenerMaxIdTarea():number{
 
         let maxId=0;
