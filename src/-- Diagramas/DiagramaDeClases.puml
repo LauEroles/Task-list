@@ -2,72 +2,68 @@
 
 @startuml TaskList
 
+class DirectorTarea{
+    -builder:InterfazBuilder;
+    +constructor(builder:InterfazBuilder)
+    +crearTarea(titulo:string):Tarea
+}
 
 class App{
 
-    -tareas:Tarea[]
+    - tareas:Map<number,Tarea>
+    - directorTarea: DirectorTarea
 
-    +crearTarea():Tarea
-    +editarTarea(tarea:Tarea,parametro:parametroTarea,valor:??):void
+
+    +Constructor(tareas: Map<number,Tarea>, director: DirectorTarea)
+    +agregarTarea(tituloTarea:string):Tarea
+    +editarTarea(tarea:Tarea):void
     +eliminarTarea(tarea:Tarea):void
     +ordenarTareas(tareas:Tarea[]):void
-    +buscarTareaPor(tarea:Tarea,valorAbuscar): Tarea
-
-
+    +buscarTareaPorId(): Tarea
     +organizarTareasPorCategoria():Tarea
-    
     +existeTarea (tarea:Tarea):bool
-}
+    +obtenerMaxIdTarea():number
 
-class GestorDeArchivos{
 
-}
-
-class Estadistica{
-
-    -gestorDeFechas: GestorDeFechas
-
-    +tareasCompletadas(tareas:Tarea[]): Tarea[]
-    +tareasPendientes(tareas:Tarea[]): Tarea[]
-    -filtrarPorEstadoTareas(tareas: Tarea[],filtro : string) : Tarea[]
-
-    +tazaFinalizacionTareas(tareas:Tarea[]) : number
-    +tazaFinalizacionTarea(tarea:Tarea): number
-    +tiempoDedicadoATarea(tarea:Tarea): number
 
 }
 
-class GestorDeFechas {
-    +diaFecha(fecha:Date):Number
-    +mesFecha(fecha:Date):Number
-    +añoFecha(fecha:Date):Number
-    +capturarFechaActual():Date
-    +nuevaFecha(dia:number,mes:number,año:number):Date
-    +tiempoTranscurridoEnMilisegundos(fechaInicio:Date):number
-    
-    //+Funciones De conversiones
+class BuilderTarea implements InterfazBuilder{
+    -tarea:Tarea|undefined
+    -maxIdTarea:number
 
-    }
+    +constructor(maxIdTarea: number)
+    -reset(): void
+    +getTarea():Tarea
+    -crearNuevoIdTarea(): number
+    +setTitulo(titulo:string):void
+    +setDescripcion(descripcion:string):void
+    +setPrioridad(prioridad:PrioridadTarea):void
+    +agregarEtiqueta(etiqueta:string):void
+    +setEstado(estado:EstadoTarea):void
+    +setFechaVencimiento(fechaVencimiento:Date):void
 
-enum EstadoTarea{
-    COMPLETADO
-    PENDIENTE
+
+
 }
 
-enum PrioridadTarea{
-    ALTA
-    MEDIA
-    BAJA
+interface InterfazBuilder{
+    getTarea():Tarea
+    setTitulo(titulo:string):void
+    setDescripcion(descripcion:string):void
+    setPrioridad(prioridad:PrioridadTarea):void
+    agregarEtiqueta(etiqueta:string):void
+    setEstado(estado:EstadoTarea):void
+    setFechaVencimiento(fechaVencimiento:Date):void
 }
-
 
 class Tarea {
-    
-     -titulo:string
+
+    -titulo:string
     -descripcion:string
     -porcentajeAvance:number
     -prioridad:Prioridad
-    -etiquetas:string[] 
+    -etiquetas:string[]
     -estado: number
     -fechaVencimientoTarea: Date
     -estadoTarea: EstadoTarea
@@ -79,30 +75,80 @@ class Tarea {
 }
 
 
+enum EstadoTarea{
+    COMPLETADO
+    PENDIENTE
+}
 
-'Relaciones
-
-App *-right- Tarea
-App *-left- Estadistica
-App -down-> GestorDeArchivos
-
-Tarea -up-> PrioridadTarea
-Tarea -up-> EstadoTarea
-Tarea -down->Etiqueta
-
-Estadistica -down-> GestorDeFechas 
+enum PrioridadTarea{
+    ALTA
+        MEDIA
+        BAJA
+    }
 
 
-note right of Tarea
-    Profe aqui podemos aplicar patron de diseño builder?
+    class GestorDeArchivos{
 
-end note
+    }
+
+    class Estadistica{
+
+        -gestorDeFechas: GestorDeFechas
+
+        +tareasCompletadas(tareas:Tarea[]): Tarea[]
+        +tareasPendientes(tareas:Tarea[]): Tarea[]
+        -filtrarPorEstadoTareas(tareas: Tarea[],filtro : string) : Tarea[]
+
+        +tazaFinalizacionTareas(tareas:Tarea[]) : number
+        +tazaFinalizacionTarea(tarea:Tarea): number
+        +tiempoDedicadoATarea(tarea:Tarea): number
+
+    }
+
+    class GestorDeFechas {
+        +diaFecha(fecha:Date):Number
+        +mesFecha(fecha:Date):Number
+        +añoFecha(fecha:Date):Number
+        +capturarFechaActual():Date
+        +nuevaFecha(dia:number,mes:number,año:number):Date
+        +tiempoTranscurridoEnMilisegundos(fechaInicio:Date):number
+
+        //+Funciones De conversiones
+
+    }
 
 
-note right of Tarea::etiquetas
+
+
+
+
+    'Relaciones
+
+    App-right->DirectorTarea
+    DirectorTarea-right->InterfazBuilder
+    App .down.> BuilderTarea
+    BuilderTarea-->Tarea
+
+
+    App *-left- Estadistica
+    App -up-> GestorDeArchivos
+
+    Tarea -down-> PrioridadTarea
+    Tarea -down-> EstadoTarea
+
+    Estadistica -down-> GestorDeFechas
+
+
+    note right of Tarea
+        Profe aqui podemos aplicar patron de diseño builder?
+
+    end note
+
+
+    note right of Tarea::etiquetas
     set
-end note
+    end note
 
 
 
-@enduml
+    @enduml

@@ -3,16 +3,19 @@ import Estadistica from "../Estadistica/Estadistica";
 import Tarea from "../Tarea/Tarea";
 import List from "../-- Nodos/List";
 import { PrioridadTarea } from "../Tarea/Enumeradores/prioridadTarea";
-import Etiqueta from "../Etiqueta/Etiqueta";
+import { DirectorTarea } from "../--Builder/Tarea/DirectorTarea";
 
 export class App{
     
     private tareas: Map<number, Tarea> ;
+    private directorTarea: DirectorTarea
 
 
-    constructor(tareas: Map<number,Tarea>) {    //y si arranca vacio?
+
+    constructor(tareas: Map<number,Tarea>, director: DirectorTarea) {    
         
         this.tareas = tareas;
+        this.directorTarea = director;
 
     }
 
@@ -20,28 +23,27 @@ export class App{
     
     public agregarTarea(tituloTarea:string): Tarea {
         
-        //Genero el id  con una funcion, teniendo en cuenta el MaxId para no
-        //repetir ni pisaer valores de Id
-        let id: number =this.crearNuevoIdTarea();
+        
 
-        const nuevaTarea=new Tarea(id, tituloTarea);        
-       //carga la tarea en el Map
-        this.tareas.set(id,nuevaTarea);
+        //TODO: Esto va a pasar a ser un metodo que va a ser 
+        const nuevaTarea: Tarea= this.directorTarea.crearTarea(tituloTarea);        
+        
+        //carga la tarea en el Map
+        this.tareas.set(nuevaTarea.getId(),nuevaTarea);
 
         //devuelvo la nueva tarea con los valores por default de 
         //id y titulo
-        //Luego en editar tarea tengo que setear los otros valores
+        //Luego en editar tarea tengo que setear los otros valores --> revisar se hará en BuildTarea
         return nuevaTarea;
     }
 
 
     //Vamos a revisarla bien, podemos pasar un objeto dentro de un map para
     //setear los parámetros que debamos modificar
-    
     public editarTarea(tarea:Tarea):void{ 
         //como no es una API, la modificacion de la tarea sale de la tarea en si, podemos recibir la tarea y actualizarla en el map.
         // en un mapa si ya existe la entrada, en este caso el ID, la updatea con el nuevo valor(objeto). seria mas un actualizarTarea.
-        //y si no la tenemos la agregamos al map.
+        //y si no la tenemos la agregamos al map. ?? Ya no aplicariaaa esto asi como esta aqui, revisar mas tarde, estoy quemada
        
         let idTarea = tarea.getId();
 
@@ -88,7 +90,7 @@ export class App{
     }
 
     
-    private obtenerMaxIdTarea():number{
+    public obtenerMaxIdTarea():number{
 
         let maxId=0;
 
@@ -103,10 +105,5 @@ export class App{
         return maxId;     
     }
 
-    private crearNuevoIdTarea():number{ //private?
 
-        let nuevoIdTarea=this.obtenerMaxIdTarea()+1;
-
-        return nuevoIdTarea;
-    }
 }

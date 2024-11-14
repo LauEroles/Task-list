@@ -1,6 +1,6 @@
 
 import GestorDeFechas from "../GestorDeFechas/GestorDeFechas";
-import { EstadoTarea } from "../Tarea/Enumeradores/estadoTarea";
+import { EstadoTarea } from "../Tarea/Enumeradores/EstadoTarea";
 import Tarea from "../Tarea/Tarea";
 
 export default class Estadistica{
