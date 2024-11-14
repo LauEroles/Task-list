@@ -62,14 +62,13 @@ class Tarea {
     -titulo:string
     -descripcion:string
     -porcentajeAvance:number
-    -prioridad:Prioridad
     -etiquetas:string[]
-    -estado: number
     -fechaVencimientoTarea: Date
-    -estadoTarea: EstadoTarea
+    -estado: EstadoTarea
     -prioridadTarea: PrioridadTarea
     +setterGetters()
     +añadirEtiqueta(etiqueta:Etiqueta):void
+    +buscarEtiqueta(etiqueta:string):string|null ??? no hará falta?
     +eliminarEtiqueta(etiqueta:Etiqueta):void
     +marcarTareaCompleta():void
 }

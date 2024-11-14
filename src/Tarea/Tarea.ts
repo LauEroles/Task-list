@@ -76,9 +76,6 @@ export default class Tarea {
         this.prioridad = prioridad;
     }
 
-    public agregarEtiquetas(etiqueta:string): void {
-        this.etiquetas.push(etiqueta);
-    }
 
     public setEstado(estado: EstadoTarea): void {
         this.estado = estado;
@@ -88,26 +85,39 @@ export default class Tarea {
         this.fechaVencimiento = fechaVencimiento;
     }
 
+    //Método para agregar etiquetas
+    public agregarEtiquetas(etiqueta:string): void {
+        this.etiquetas.push(etiqueta);
+    }
     // Other methods
-    public AñadirEtiqueta(etiqueta: string): void {
 
-    }
-
+   
+    //recorre cada elemento etiquetaBuscada del array etiquetas
+    //comparo cada etiqueta etiquetaBuscada en el array con la etiqueta que quiero eliminar 
+    //Si et no es igual a la etiqueta a eliminar, el elemento se incluye en el nuevo array.
+    //Si et es igual a la etiqueta que quieres eliminar, filter excluye este elemento del nuevo array.
     public EliminarEtiqueta(etiqueta: string): void {
-
+            this.etiquetas = this.etiquetas.filter(etiquetaBuscada => etiquetaBuscada !== etiqueta);
     }
 
+    //VER PORQUE CON EL FILTER NO NECESITO HACER ESTA BUSQUEDA ASI
+    //Descubri el metodo find, aqui recorre el array de etiquetas y si la en cuentra retorna un string
+    //public buscarEtiqueta(etiqueta:string):string|null{
+      // return this.etiquetas.find(etiquetaEncontrada=>etiquetaEncontrada===etiqueta)||null;
+    //}
 
     public MarcarTarea(): void {
         
         if(this.porcentajeAvance=100){
             this.estado=EstadoTarea.COMPLETADO;
+
         } else if((this.porcentajeAvance==0) || (this.porcentajeAvance==25)|| (this.porcentajeAvance==50)){
             this.estado=EstadoTarea.PENDIENTE;
-         }else{
-            //Arrojar una Excepción los valores indicados no estan dentro de los parametros
-         }
-        
+          
+            }else{
+                //Arrojar una Excepción los valores indicados no estan dentro de los parametros
+            }
+            
     }
 
 

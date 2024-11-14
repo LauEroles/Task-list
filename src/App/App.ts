@@ -41,6 +41,7 @@ export class App{
 
     //Vamos a revisarla bien, podemos pasar un objeto dentro de un map para
     //setear los parámetros que debamos modificar
+
     public editarTarea(tarea:Tarea):void{ 
         //como no es una API, la modificacion de la tarea sale de la tarea en si, podemos recibir la tarea y actualizarla en el map.
         // en un mapa si ya existe la entrada, en este caso el ID, la updatea con el nuevo valor(objeto). seria mas un actualizarTarea.
@@ -52,12 +53,16 @@ export class App{
 
             this.tareas.set(idTarea,tarea);
 
-        }  //TODO: Aqui no le agregaria la tarea sino que tiraria una excepción
+        }  //TODO: si no encuentro la tarea tiro una excepción o la agrego??
         //Revisar
         // else this.agregarTarea(tarea);
         
     }
 
+    public editarTituloTarea(tarea:Tarea):void{
+
+
+    }
     //TODO: editar: titulo, descripcion,porcentajeAvance,etiquetas,fechaVencimiento,estadoTarea,prioridadTarea
 
     public eliminarTarea(tarea:Tarea):void{
