@@ -1,5 +1,5 @@
 import { EstadoTarea } from "./Enumeradores/EstadoTarea";
-import { PrioridadTarea } from "./Enumeradores/prioridadTarea";
+import { PrioridadTarea } from "./Enumeradores/PrioridadTarea";
 import { BuilderTarea } from "../--Builder/Tarea/BuilderTarea";
 
 export default class Tarea {
@@ -97,9 +97,20 @@ export default class Tarea {
 
     }
 
+
     public MarcarTarea(): void {
         
+        if(this.porcentajeAvance=100){
+            this.estado=EstadoTarea.COMPLETADO;
+        } else if((this.porcentajeAvance==0) || (this.porcentajeAvance==25)|| (this.porcentajeAvance==50)){
+            this.estado=EstadoTarea.PENDIENTE;
+         }else{
+            //Arrojar una Excepción los valores indicados no estan dentro de los parametros
+         }
+        
     }
+
+
     //Esto lo hago para ver si lo que estamos haciendo funciona
     //describe sirve para agrupar especificaciones relacionadas. 
     //Normalmente, cada archivo de prueba tiene una función describe en el nivel superior.

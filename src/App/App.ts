@@ -2,7 +2,7 @@
 import Estadistica from "../Estadistica/Estadistica";
 import Tarea from "../Tarea/Tarea";
 import List from "../-- Nodos/List";
-import { PrioridadTarea } from "../Tarea/Enumeradores/prioridadTarea";
+import { PrioridadTarea } from "../Tarea/Enumeradores/PrioridadTarea";
 import { DirectorTarea } from "../--Builder/Tarea/DirectorTarea";
 
 export class App{
@@ -19,13 +19,14 @@ export class App{
 
     }
 
-
     
     public agregarTarea(tituloTarea:string): Tarea {
         
         
 
-        //TODO: Esto va a pasar a ser un metodo que va a ser 
+        // Creo una nueva Tarea --> en realidad la crea el Director, quien a su vez recibe un
+        // TareaBuilder (quien tiene tambien responabilidad de generar el id, en base a la info que le brinda la app desde
+        // el metodo obtenerMaxIdTarea() )
         const nuevaTarea: Tarea= this.directorTarea.crearTarea(tituloTarea);        
         
         //carga la tarea en el Map
@@ -57,6 +58,7 @@ export class App{
         
     }
 
+    //TODO: editar: titulo, descripcion,porcentajeAvance,etiquetas,fechaVencimiento,estadoTarea,prioridadTarea
 
     public eliminarTarea(tarea:Tarea):void{
         
@@ -84,7 +86,6 @@ export class App{
         return t;
     }
 
-    //TODO
     public existeTarea (tarea:Tarea):boolean{
         return this.tareas.has(tarea.getId());
     }

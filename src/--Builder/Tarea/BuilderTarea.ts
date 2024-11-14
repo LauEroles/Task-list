@@ -1,5 +1,5 @@
 import { EstadoTarea } from "../../Tarea/Enumeradores/EstadoTarea";
-import { PrioridadTarea } from "../../Tarea/Enumeradores/prioridadTarea";
+import { PrioridadTarea } from "../../Tarea/Enumeradores/PrioridadTarea";
 import Tarea from "../../Tarea/Tarea";
 import { InterfazBuilder } from "./InterfazBuilder";
 
