@@ -59,12 +59,42 @@ export class App{
         
     }
 
-    public editarTituloTarea(tarea:Tarea):void{
+    //TODO: editar: porcentajeAvance,fechaVencimiento,estadoTarea,prioridadTarea
+
+
+    /* busca la tarea en el Map usando el id de la tarea proporcionada (tarea.getId()).
+       Encadenamiento Opcional (?.): uso ?. para intentar llamar a setTitulo solo si la tarea fue encontrada en el Map. 
+       Si this.tareas.get(tarea.getId()) devuelve undefined (porque no se encontró la tarea), el operador ?. evita que ocurra un error.
+       Actualizar el Título: Si la tarea es encontrada, se llama a setTitulo(titulo) para cambiar el título de la tarea. */
+     public editarTituloTarea(tarea:Tarea,titulo:string):void{
+        this.tareas.get(tarea.getId())?.setTitulo(titulo);
+
+    }
+
+    public editarDescripcion(tarea:Tarea,descripcion:string):void{
+        this.tareas.get(tarea.getId())?.setDescripcion(descripcion);
+
+    }
+
+    //Recibe la tarea, la etiqueta dentro de la tarea y la etiqueta que necesit cambiar por parametro
+    //Este metodo como todos los editar de esta clase, son pasamanos, 
+    //Voy a obtener la tarea que necesito identificar para cambiar su etiqueta
+    //Luego llamo al setter de etiquetas que esta en la clase Tarea
+    //que es quien se encarga de cambiar el valor de la etiqueta
+    public editarEtiqueta(tarea:Tarea, etiqueta:string,etiquetaACambiar:string):void{
+        this.tareas.get(tarea.getId())?.setEtiquetas(etiqueta,etiquetaACambiar)
+    }
+
+
+    //TODO
+    //en standby por ahora mañana viernes termino esta y otras mas
+    public editarPorcentajeAvance(tarea:Tarea):void{
 
 
     }
-    //TODO: editar: titulo, descripcion,porcentajeAvance,etiquetas,fechaVencimiento,estadoTarea,prioridadTarea
+    
 
+    
     public eliminarTarea(tarea:Tarea):void{
         
         //si no lo puede eliminar es porque no existe y hago una excepcion

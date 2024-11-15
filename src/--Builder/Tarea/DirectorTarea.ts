@@ -1,6 +1,6 @@
 import { InterfazBuilder } from "./InterfazBuilder";
 import Tarea from "../../Tarea/Tarea";
-import { PrioridadTarea } from "../../Tarea/Enumeradores/prioridadTarea";
+import { PrioridadTarea } from "../../Tarea/Enumeradores/PrioridadTarea";
 import { EstadoTarea } from "../../Tarea/Enumeradores/EstadoTarea";
 
 
@@ -26,6 +26,12 @@ export class DirectorTarea{
         return this.builder.getTarea();
 
     }
+
+    //crear diferentes tareas con diferentes parametros por default
+    //Puedo duplicar una tarea, ver como podria hacer esta logica
+    
+
+
 
 
 

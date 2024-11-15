@@ -85,19 +85,49 @@ export default class Tarea {
         this.fechaVencimiento = fechaVencimiento;
     }
 
+    //Recorro la lista de etiquetas, luego recibo por parametro la etiqueta que quiero modificar
+    //y la etiqueta por la cual cambiare a la etiqueta origianl
+    //Decidí recorrerlas a las etiquetas con el indice y luego, si la encuentra, le asigno el nuevo  valor de la nueva etiqueta
+    //Si no encuentra la etiqueta la agrega
+    public setEtiquetas(etiqueta:string, etiquetaACambiar:string){
+        for(let i=0;i<this.etiquetas.length;i++){
+            if(this.etiquetas[i]===etiqueta){
+                this.etiquetas[i]=etiquetaACambiar;
+            }else{
+                this.agregarEtiquetas(etiquetaACambiar);
+            }
+        }
+    }
+
+
+    // OTROS MÉTODOS
+
+    //Método para buscar etiquetas en el array
+    public existeEtiqueta(etiqueta:string):boolean{
+        for(const etiquetaEncontrada of this.etiquetas){
+            if (etiquetaEncontrada===etiqueta){
+                return true;
+            }
+
+        }
+        return false;
+
+    }
+
     //Método para agregar etiquetas
     public agregarEtiquetas(etiqueta:string): void {
-        this.etiquetas.push(etiqueta);
+        if(this.existeEtiqueta(etiqueta)==false){
+            this.etiquetas.push(etiqueta);
+        }
     }
-    // Other methods
 
-   
     //recorre cada elemento etiquetaBuscada del array etiquetas
     //comparo cada etiqueta etiquetaBuscada en el array con la etiqueta que quiero eliminar 
     //Si et no es igual a la etiqueta a eliminar, el elemento se incluye en el nuevo array.
     //Si et es igual a la etiqueta que quieres eliminar, filter excluye este elemento del nuevo array.
     public EliminarEtiqueta(etiqueta: string): void {
-            this.etiquetas = this.etiquetas.filter(etiquetaBuscada => etiquetaBuscada !== etiqueta);
+        //Podri haber eliminado tambien con IndexOf y splice? revisar despues esto
+        this.etiquetas = this.etiquetas.filter(etiquetaBuscada => etiquetaBuscada !== etiqueta);
     }
 
     //VER PORQUE CON EL FILTER NO NECESITO HACER ESTA BUSQUEDA ASI
@@ -106,7 +136,13 @@ export default class Tarea {
       // return this.etiquetas.find(etiquetaEncontrada=>etiquetaEncontrada===etiqueta)||null;
     //}
 
-    public MarcarTarea(): void {
+
+
+    //settear Avance poircentaje tarea
+
+
+    //esto no lo deberia hacer la App? Y e 
+    public MarcarTareaComoCompleta(): void {
         
         if(this.porcentajeAvance=100){
             this.estado=EstadoTarea.COMPLETADO;
@@ -115,10 +151,12 @@ export default class Tarea {
             this.estado=EstadoTarea.PENDIENTE;
           
             }else{
-                //Arrojar una Excepción los valores indicados no estan dentro de los parametros
+                
+                //TODO Arrojar una Excepción los valores indicados no estan dentro de los parametros
             }
             
     }
+
 
 
     //Esto lo hago para ver si lo que estamos haciendo funciona
