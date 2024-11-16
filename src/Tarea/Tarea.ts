@@ -53,7 +53,7 @@ export default class Tarea {
         return this.etiquetas;
     }
 
-    public getEstado(): EstadoTarea{
+    public getEstadoTarea(): EstadoTarea{
         return this.estado;
     }
 
@@ -79,7 +79,7 @@ export default class Tarea {
     }
 
 
-    public setEstado(estado: EstadoTarea): void {
+    public setEstadoTarea(estado: EstadoTarea): void {
         this.estado = estado;
     }
 
