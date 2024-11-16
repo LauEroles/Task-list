@@ -1,6 +1,6 @@
 import { InterfazBuilder } from "./InterfazBuilder";
 import Tarea from "../../Tarea/Tarea";
-import { PrioridadTarea } from "../../Tarea/Enumeradores/prioridadTarea";
+import { PrioridadTarea } from "../../Tarea/Enumeradores/PrioridadTarea";
 import { EstadoTarea } from "../../Tarea/Enumeradores/EstadoTarea";
 
 
@@ -19,6 +19,7 @@ export class DirectorTarea{
         
         this.builder.setTitulo(titulo);
         this.builder.setDescripcion("");
+        this.builder.setPorcentajeAvance(0);
         this.builder.setPrioridad(PrioridadTarea.BAJA);
         this.builder.setEstado(EstadoTarea.PENDIENTE);
         this.builder.setFechaVencimiento(new Date(Date.now()));
@@ -26,6 +27,12 @@ export class DirectorTarea{
         return this.builder.getTarea();
 
     }
+
+    //crear diferentes tareas con diferentes parametros por default
+    //Puedo duplicar una tarea, ver como podria hacer esta logica
+
+
+
 
 
 
