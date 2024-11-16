@@ -19,6 +19,7 @@ export class DirectorTarea{
         
         this.builder.setTitulo(titulo);
         this.builder.setDescripcion("");
+        this.builder.setPorcentajeAvance(0);
         this.builder.setPrioridad(PrioridadTarea.BAJA);
         this.builder.setEstado(EstadoTarea.PENDIENTE);
         this.builder.setFechaVencimiento(new Date(Date.now()));
@@ -29,7 +30,7 @@ export class DirectorTarea{
 
     //crear diferentes tareas con diferentes parametros por default
     //Puedo duplicar una tarea, ver como podria hacer esta logica
-    
+
 
 
 

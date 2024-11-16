@@ -11,7 +11,8 @@ export default class Tarea {
     private prioridad: PrioridadTarea;
     private etiquetas: string[];
     private estado: EstadoTarea;
-    private fechaVencimiento: Date;
+    private fechaVencimiento: Date | undefined;
+    
 
     constructor( id: number, titulo: string) { //el id ahora  va a ser calculado por el Builder Tarea obteniendo el ultimo id de la clase App
         this.id = id;
@@ -21,7 +22,8 @@ export default class Tarea {
         this.prioridad = PrioridadTarea.BAJA;
         this.etiquetas = [];
         this.estado = EstadoTarea.PENDIENTE;
-        this.fechaVencimiento = new Date(Date.now());
+        this.fechaVencimiento = undefined; //new Date(Date.now());
+        
     }
 
 
@@ -55,7 +57,7 @@ export default class Tarea {
         return this.estado;
     }
 
-    public getFechaVencimiento():Date {
+    public getFechaVencimiento():Date|undefined {
         return this.fechaVencimiento;
     }
 
@@ -140,19 +142,27 @@ export default class Tarea {
 
     //settear Avance poircentaje tarea
 
+    public actualizarPorcentajeAvance(porcentaje:number):void{
+        const porcentajesValidos=[0,25,50,100];
+        if(porcentajesValidos.includes(porcentaje)){
+            this.porcentajeAvance=porcentaje;
+            this.MarcarTareaComoCompleta();
+        } else{//TODO el try catch en el main y hacer una clase especifica para esta excepcion
+            throw new Error(`Ingresó valores no validos para el porcentaje, por favor elija su progreso en base a los siguientes valores: 0, 25, 50, 75, 100`);
+        }
+
+    }
+
 
     //esto no lo deberia hacer la App? Y e 
     public MarcarTareaComoCompleta(): void {
         
-        if(this.porcentajeAvance=100){
+        if(this.porcentajeAvance==100){
             this.estado=EstadoTarea.COMPLETADO;
 
         } else if((this.porcentajeAvance==0) || (this.porcentajeAvance==25)|| (this.porcentajeAvance==50)){
             this.estado=EstadoTarea.PENDIENTE;
           
-            }else{
-                
-                //TODO Arrojar una Excepción los valores indicados no estan dentro de los parametros
             }
             
     }

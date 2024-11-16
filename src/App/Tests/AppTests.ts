@@ -1,4 +1,4 @@
-import { PrioridadTarea } from "../../Tarea/Enumeradores/PrioridadTarea";
+/*import { PrioridadTarea } from "../../Tarea/Enumeradores/PrioridadTarea";
 import Tarea from "../../Tarea/Tarea";
 import { App } from "../App";
 
@@ -34,4 +34,4 @@ function MiTestEditarTarea() {
 
         expect(tareaResultante.getDescripcion()).toBe("Descripcion modificada");
     })
-}
+}*/

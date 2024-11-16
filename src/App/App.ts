@@ -42,7 +42,7 @@ export class App{
     //Vamos a revisarla bien, podemos pasar un objeto dentro de un map para
     //setear los parámetros que debamos modificar
 
-    public editarTarea(tarea:Tarea):void{ 
+    public editarTarea(tarea:Tarea, titulo:string):void{ 
         //como no es una API, la modificacion de la tarea sale de la tarea en si, podemos recibir la tarea y actualizarla en el map.
         // en un mapa si ya existe la entrada, en este caso el ID, la updatea con el nuevo valor(objeto). seria mas un actualizarTarea.
         //y si no la tenemos la agregamos al map. ?? Ya no aplicariaaa esto asi como esta aqui, revisar mas tarde, estoy quemada
@@ -59,7 +59,7 @@ export class App{
         
     }
 
-    //TODO: editar: porcentajeAvance,fechaVencimiento,estadoTarea,prioridadTarea
+    //TODO: editar: fechaVencimiento,estadoTarea
 
 
     /* busca la tarea en el Map usando el id de la tarea proporcionada (tarea.getId()).
@@ -76,6 +76,19 @@ export class App{
 
     }
 
+    //Para editar un porcentaje desde aqui, solo identifico el numero de tarea
+   //llamo al metodo que se encuentra en la clase Tarea actualizarPorcentaje y si la tarea es válida
+   //cambio el valor del progreso de la tarea
+   public editarPorcentajeAvance(tarea:Tarea,porcentaje:number):void{
+    this.tareas.get(tarea.getId())?.actualizarPorcentajeAvance(porcentaje);
+
+    }
+
+    //Recibo una tarea y una prioridad y la edito llamando al metodo set en Tarea
+    public editarPrioridad(tarea:Tarea,prioridad:PrioridadTarea):void{
+        this.tareas.get(tarea.getId())?.setPrioridad(prioridad);
+    }
+
     //Recibe la tarea, la etiqueta dentro de la tarea y la etiqueta que necesit cambiar por parametro
     //Este metodo como todos los editar de esta clase, son pasamanos, 
     //Voy a obtener la tarea que necesito identificar para cambiar su etiqueta
@@ -86,20 +99,19 @@ export class App{
     }
 
 
-    //TODO
-    //en standby por ahora mañana viernes termino esta y otras mas
-    public editarPorcentajeAvance(tarea:Tarea):void{
-
-
-    }
+   
     
 
-    
+
+
     public eliminarTarea(tarea:Tarea):void{
         
         //si no lo puede eliminar es porque no existe y hago una excepcion
+        //esta raris este metodo revisar bien
         if(!this.tareas.delete(tarea.getId())) {
-            //TODO: hacer manejo de excepcion 
+
+            //TODO: REVISION HACER EL TRY CATCH EN EL MAIN
+            throw new Error(`La tarea con ID ${tarea.getId()} no existe, por ello no puedo eliminarla`);
 
         }
     }
@@ -109,7 +121,7 @@ export class App{
 
     }
 
-    //TODO
+    //TODO: creo que no pedia esto el enunciado
     public buscarTareaPorId(id: number): Tarea{
         let t=new Tarea(12,"tt")
         return t;

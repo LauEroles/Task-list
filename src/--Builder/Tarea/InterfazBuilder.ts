@@ -1,5 +1,5 @@
 import Tarea from "../../Tarea/Tarea";
-import { PrioridadTarea } from "../../Tarea/Enumeradores/prioridadTarea";
+import { PrioridadTarea } from "../../Tarea/Enumeradores/PrioridadTarea";
 import { EstadoTarea } from "../../Tarea/Enumeradores/EstadoTarea";
 
 export interface InterfazBuilder {
@@ -9,6 +9,7 @@ export interface InterfazBuilder {
     //son los equivalentes a buildStepA(),buildStepB(),buildStepC()
     setTitulo(titulo:string):void;
     setDescripcion(descripcion:string):void;
+    setPorcentajeAvance(porcentajeAvance:number):void;
     setPrioridad(prioridad:PrioridadTarea):void;
     agregarEtiqueta(etiqueta:string):void;
     setEstado(estado:EstadoTarea):void;
