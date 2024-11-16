@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="10" failures="2" errors="0" time="8.275">
-  <testsuite name="Tests clase Tarea" errors="0" failures="2" skipped="0" timestamp="2024-11-16T21:09:35" time="6.868" tests="10">
-    <testcase classname="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" name="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" time="0.005">
+<testsuites name="jest tests" tests="13" failures="4" errors="0" time="8.056">
+  <testsuite name="Tests clase Tarea" errors="0" failures="4" skipped="0" timestamp="2024-11-16T22:40:05" time="6.638" tests="13">
+    <testcase classname="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" name="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" time="0.007">
     </testcase>
     <testcase classname="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" time="0.001">
     </testcase>
@@ -30,7 +30,7 @@ Received: []
     at runTestInternal (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:367:16)
     at runTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:444:34)</failure>
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" time="0.002">
+    <testcase classname="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" time="0.001">
     </testcase>
     <testcase classname="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" time="0.001">
     </testcase>
@@ -53,7 +53,55 @@ Received: undefined
     at runTestInternal (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:367:16)
     at runTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:444:34)</failure>
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" name="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" time="0.002">
+    <testcase classname="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" name="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" time="0.001">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" name="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" time="0.005">
+      <failure>Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  - 1
++ Received  + 1
+
+  Array [
+    &quot;Trabajo&quot;,
+    &quot;Personal&quot;,
+    &quot;Proyecto&quot;,
+-   &quot;Estudio&quot;,
++   &quot;Estudioo&quot;,
+  ]
+    at Object.&lt;anonymous&gt; (/Users/lauraeroles/Documents/github.com/Task-list/src/Tarea/Tests/Tarea.test.ts:97:41)
+    at Promise.then.completed (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" name="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" time="0.007">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" name="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" time="0.001">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: &quot;completado&quot;
+Received: [Function getEstadoTarea]
+    at Object.&lt;anonymous&gt; (/Users/lauraeroles/Documents/github.com/Task-list/src/Tarea/Tests/Tarea.test.ts:134:41)
+    at Promise.then.completed (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:316:40)
+    at _runTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:121:9)
+    at run (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/lauraeroles/Documents/github.com/Task-list/node_modules/jest-runner/build/runTest.js:444:34)</failure>
     </testcase>
   </testsuite>
 </testsuites>

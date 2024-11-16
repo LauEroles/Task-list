@@ -84,42 +84,75 @@ describe ("Tests clase Tarea", () => {
         expect(instance.existeEtiqueta(etiquetaExistente)).toBe(true);
     })
 
+    it("Verifico si puedo eliminar una etiqueta en una tarea", ()=>{
+        let etiquetaAEliminar:string="esta si";
+        instance.agregarEtiquetas(etiquetaAEliminar);
+        instance.agregarEtiquetas("Trabajo");
+        instance.agregarEtiquetas("Personal");
+        instance.agregarEtiquetas("Proyecto");
+        instance.agregarEtiquetas("Estudioo");
+
+        instance.EliminarEtiqueta(etiquetaAEliminar)
+        expect(instance.getEtiquetas()).not.toContain(etiquetaAEliminar);
+        expect(instance.getEtiquetas()).toEqual(["Trabajo","Personal","Proyecto","Estudio"]);
+    })
+
+
+    it("Verifico si puedo actualizar el porcentaje de Avance de la Tarea",()=> {
+
+        let porcentaje1:number=0;
+        let porcentaje2:number=25;
+        let porcentaje3:number=50;
+        let porcentaje4:number=100;
+
+        instance.setPorcentajeAvance(porcentaje1);
+        expect(instance.getPorcentajeAvance()).toBe(0);
+
+        instance.setPorcentajeAvance(porcentaje2);
+        expect(instance.getPorcentajeAvance()).toBe(25);
+       
+        instance.setPorcentajeAvance(porcentaje3);
+        expect(instance.getPorcentajeAvance()).toBe(50);
+       
+        instance.setPorcentajeAvance(porcentaje4);
+        expect(instance.getPorcentajeAvance()).toBe(100);
+
+        expect(() => {
+            instance.actualizarPorcentajeAvance(30); // Valor no válido
+        }).toThrow(
+            "Ingresó valores no validos para el porcentaje, por favor elija su progreso en base a los siguientes valores: 0, 25, 50, 75, 100" );
+
+    })
+
+
+
+    it("Verifico si el método  MarcarTareaComoCompleta() funciona",()=> {
+      
+        //Caso 1  porcentaje1:number=100;
+        instance.actualizarPorcentajeAvance(100);
+        instance.MarcarTareaComoCompleta();
+        expect(instance.getEstadoTarea).toBe(EstadoTarea.COMPLETADO);
+
+
+        //Caso 2 porcentaje2:number=50;
+        instance.actualizarPorcentajeAvance(50);
+        instance.MarcarTareaComoCompleta();
+        expect(instance.getEstadoTarea).toBe(EstadoTarea.PENDIENTE);
+
+        //Caso 3 porcentaje3:number=25;
+        instance.actualizarPorcentajeAvance(25);
+        instance.MarcarTareaComoCompleta();
+        expect(instance.getEstadoTarea).toBe(EstadoTarea.PENDIENTE);
+
+        //Caso 4 porcentaje4:number=0;
+        instance.actualizarPorcentajeAvance(0);
+        instance.MarcarTareaComoCompleta();
+        expect(instance.getEstadoTarea).toBe(EstadoTarea.PENDIENTE);
+
+
+    })
+
 
 
 })
-
-/*
-
-public EliminarEtiqueta(etiqueta: string): void {
-    //Podri haber eliminado tambien con IndexOf y splice? revisar despues esto
-    this.etiquetas = this.etiquetas.filter(etiquetaBuscada => etiquetaBuscada !== etiqueta);
-}
-
-
-//settear Avance poircentaje tarea
-
-public actualizarPorcentajeAvance(porcentaje:number):void{
-    const porcentajesValidos=[0,25,50,100];
-    if(porcentajesValidos.includes(porcentaje)){
-        this.porcentajeAvance=porcentaje;
-        this.MarcarTareaComoCompleta();
-    } else{//TODO el try catch en el main y hacer una clase especifica para esta excepcion
-        throw new Error(`Ingresó valores no validos para el porcentaje, por favor elija su progreso en base a los siguientes valores: 0, 25, 50, 75, 100`);
-    }
-
-}
-
-
-//esto no lo deberia hacer la App? Y e 
-public MarcarTareaComoCompleta(): void {
-    
-    if(this.porcentajeAvance==100){
-        this.estado=EstadoTarea.COMPLETADO;
-
-    } else if((this.porcentajeAvance==0) || (this.porcentajeAvance==25)|| (this.porcentajeAvance==50)){
-        this.estado=EstadoTarea.PENDIENTE;
-      
-        }
-        
-}*/
 
