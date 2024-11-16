@@ -53,7 +53,7 @@ export default class Tarea {
         return this.etiquetas;
     }
 
-    public getEstado(): EstadoTarea{
+    public getEstadoTarea(): EstadoTarea{
         return this.estado;
     }
 
@@ -79,7 +79,7 @@ export default class Tarea {
     }
 
 
-    public setEstado(estado: EstadoTarea): void {
+    public setEstadoTarea(estado: EstadoTarea): void {
         this.estado = estado;
     }
 
@@ -176,7 +176,7 @@ export default class Tarea {
     //Cadena: Se utiliza para nombrar la colección de especificaciones.
     //Especificaciones: Se concatenan con la cadena para formar el nombre completo de una especificación
     
-    describeTarea():void{
+  /*  describeTarea():void{
         console.log(`Titulo: ${this.titulo}`);
         console.log(`id: ${this.id}`);
         console.log(`Descripcion: ${this.descripcion}`);
@@ -186,7 +186,7 @@ export default class Tarea {
         console.log(`Estado Tarea: ${this.estado}`);
         console.log(`Date: ${this.fechaVencimiento}`);
 
-    }
+    }*/
 
 
 
