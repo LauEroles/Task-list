@@ -28,6 +28,7 @@ export default class Tarea {
 
 
 
+
     // Getters
     public getId(): number {
         return this.id;
@@ -204,6 +205,10 @@ export default class Tarea {
 
 
 
+        public ordenarEtiquetas():void{
+            let et=this.etiquetas.sort
+
+        }
 
 
 }

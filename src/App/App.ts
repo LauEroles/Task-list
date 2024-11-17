@@ -5,18 +5,30 @@ import List from "../-- Nodos/List";
 import { PrioridadTarea } from "../Tarea/Enumeradores/PrioridadTarea";
 import { DirectorTarea } from "../--Builder/Tarea/DirectorTarea";
 import { EstadoTarea } from "../Tarea/Enumeradores/EstadoTarea";
+import { Ordenamiento } from "../--Factory Method/Ordenamiento/Ordenamiento";
+import { OrdenamientoPorFechaVto } from "../--Factory Method/Ordenamiento/PorFechaVenciminto";
+import { OrdenamientoPorTitulo } from "../--Factory Method/Ordenamiento/PorTitulo";
+import { OrdenamientoPorPrioridad } from "../--Factory Method/Ordenamiento/PorPrioridad";
+import { InterfazOrdenar } from "../Ordenamiento/InterfazOrdenar";
 
 export class App{
     
     private tareas: Map<number, Tarea> ;
     private directorTarea: DirectorTarea
 
+    private factoryOrdenarPorTitulo: Ordenamiento;
+    private factoryOrdenarPorFechaVto: Ordenamiento;
+    private factoryOrdenarPorPrioridad: Ordenamiento;
 
 
     constructor(tareas: Map<number,Tarea>, director: DirectorTarea) {    
         
         this.tareas = tareas;
         this.directorTarea = director;
+
+        this.factoryOrdenarPorTitulo = new OrdenamientoPorTitulo()
+        this.factoryOrdenarPorFechaVto = new OrdenamientoPorFechaVto()
+        this.factoryOrdenarPorPrioridad = new OrdenamientoPorPrioridad()
 
     }
 
@@ -126,8 +138,15 @@ export class App{
     }
 
     //TODO
-    public ordenarTareas(tareas:Tarea[]):void{
-
+    public ordenarTareasPorTitulo(): Tarea[]{
+        let ordenamiento: InterfazOrdenar = this.factoryOrdenarPorTitulo.crearOrdenamiento();
+        return ordenamiento.ordenar(this.tareas);
+    }
+    //TODO
+    public ordenarTareasPorFechaVto(): Tarea[]{
+    }
+    //TODO
+    public ordenarTareasPorPrioridad(): Tarea[]{
     }
 
     //TODO: creo que no pedia esto el enunciado
