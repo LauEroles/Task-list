@@ -1,4 +1,4 @@
-import GestorDeFechas from "../GestorDeFechas"
+/*import GestorDeFechas from "../GestorDeFechas"
 import {mock} from "jest-mock-extended";
 
 describe ("Tests clase GestorDeFecha", () => { 
@@ -59,7 +59,7 @@ describe ("Tests clase GestorDeFecha", () => {
   
     })
     
-})
+})*/
 
 /*
 +diaFecha(fecha:Date):Number

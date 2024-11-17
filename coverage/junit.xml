@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="6" failures="0" errors="0" time="7.844">
-  <testsuite name="Tests clase GestorDeFecha" errors="0" failures="0" skipped="0" timestamp="2024-11-05T03:21:47" time="6.518" tests="6">
-    <testcase classname="Tests clase GestorDeFecha capturar Fecha actual correcta capturar Fecha actual correcta" name="Tests clase GestorDeFecha capturar Fecha actual correcta capturar Fecha actual correcta" time="0.01">
+<testsuites name="jest tests" tests="14" failures="0" errors="0" time="7.483">
+  <testsuite name="Tests clase OrdenarPorTitulo" errors="0" failures="0" skipped="0" timestamp="2024-11-17T23:05:16" time="6.214" tests="1">
+    <testcase classname="Tests clase OrdenarPorTitulo Ordena una array de tareas por titulo Ordena una array de tareas por titulo" name="Tests clase OrdenarPorTitulo Ordena una array de tareas por titulo Ordena una array de tareas por titulo" time="0.005">
     </testcase>
-    <testcase classname="Tests clase GestorDeFecha capturar dia Correcto capturar dia Correcto" name="Tests clase GestorDeFecha capturar dia Correcto capturar dia Correcto" time="0.003">
+  </testsuite>
+  <testsuite name="Tests clase Tarea" errors="0" failures="0" skipped="0" timestamp="2024-11-17T23:05:22" time="0.33" tests="13">
+    <testcase classname="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" name="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" time="0.002">
     </testcase>
-    <testcase classname="Tests clase GestorDeFecha capturar mes Correcto capturar mes Correcto" name="Tests clase GestorDeFecha capturar mes Correcto capturar mes Correcto" time="0.002">
+    <testcase classname="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" time="0.001">
     </testcase>
-    <testcase classname="Tests clase GestorDeFecha capturar año Correcto capturar año Correcto" name="Tests clase GestorDeFecha capturar año Correcto capturar año Correcto" time="0.002">
+    <testcase classname="Tests clase Tarea Verifico al cambiar la descripción, que tome el nuevo valor asignado Verifico al cambiar la descripción, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la descripción, que tome el nuevo valor asignado Verifico al cambiar la descripción, que tome el nuevo valor asignado" time="0.001">
     </testcase>
-    <testcase classname="Tests clase GestorDeFecha capturar años Transcurridos de Milisegundos Correcto capturar años Transcurridos de Milisegundos Correcto" name="Tests clase GestorDeFecha capturar años Transcurridos de Milisegundos Correcto capturar años Transcurridos de Milisegundos Correcto" time="0.002">
+    <testcase classname="Tests clase Tarea Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado" time="0">
     </testcase>
-    <testcase classname="Tests clase GestorDeFecha capturar fecha nueva Correcta capturar fecha nueva Correcta" name="Tests clase GestorDeFecha capturar fecha nueva Correcta capturar fecha nueva Correcta" time="0.002">
+    <testcase classname="Tests clase Tarea Verifico al cambiar la prioridad, que tome el nuevo valor asignado Verifico al cambiar la prioridad, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la prioridad, que tome el nuevo valor asignado Verifico al cambiar la prioridad, que tome el nuevo valor asignado" time="0.001">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico al cambiar etiqueta, que tome el nuevo valor asignado Verifico al cambiar etiqueta, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar etiqueta, que tome el nuevo valor asignado Verifico al cambiar etiqueta, que tome el nuevo valor asignado" time="0.002">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" time="0.001">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" time="0.003">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si una Tarea puede crear una etiqueta Verifico si una Tarea puede crear una etiqueta" name="Tests clase Tarea Verifico si una Tarea puede crear una etiqueta Verifico si una Tarea puede crear una etiqueta" time="0.001">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" name="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" time="0.001">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" name="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" time="0.001">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" name="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" time="0.023">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" name="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

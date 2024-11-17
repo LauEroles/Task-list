@@ -1,5 +1,5 @@
 import { EstadoTarea } from "../../Tarea/Enumeradores/EstadoTarea";
-import { PrioridadTarea } from "../../Tarea/Enumeradores/prioridadTarea";
+import { PrioridadTarea } from "../../Tarea/Enumeradores/PrioridadTarea";
 import Tarea from "../../Tarea/Tarea";
 import { InterfazBuilder } from "./InterfazBuilder";
 
@@ -35,8 +35,7 @@ export class BuilderTarea implements InterfazBuilder{
         return this.maxIdTarea;
     }
     
-    //TODO:
-    //Aqui si es undefine podria  gestionarnarlo como error
+    //TODO:Aqui si es undefine podria  gestionarnarlo como error??? ver bien
     public setTitulo(titulo:string):void{
         if (this.tarea!=undefined){
             (this.tarea as Tarea).setTitulo(titulo);
@@ -48,6 +47,13 @@ export class BuilderTarea implements InterfazBuilder{
     public setDescripcion(descripcion:string):void{
         if(this.tarea!=undefined){
             (this.tarea as Tarea).setDescripcion(descripcion);
+        }
+    }
+
+    
+    public setPorcentajeAvance(porcentaje:number):void{
+        if(this.tarea!=undefined){
+            (this.tarea as Tarea).setPorcentajeAvance(porcentaje);
         }
     }
 
@@ -74,6 +80,8 @@ export class BuilderTarea implements InterfazBuilder{
             (this.tarea as Tarea).setFechaVencimiento(fechaVencimiento);
         }
     }
+
+
 
 
 
