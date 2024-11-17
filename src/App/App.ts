@@ -4,6 +4,7 @@ import Tarea from "../Tarea/Tarea";
 import List from "../-- Nodos/List";
 import { PrioridadTarea } from "../Tarea/Enumeradores/PrioridadTarea";
 import { DirectorTarea } from "../--Builder/Tarea/DirectorTarea";
+import { EstadoTarea } from "../Tarea/Enumeradores/EstadoTarea";
 
 export class App{
     
@@ -96,6 +97,14 @@ export class App{
     //que es quien se encarga de cambiar el valor de la etiqueta
     public editarEtiqueta(tarea:Tarea, etiqueta:string,etiquetaACambiar:string):void{
         this.tareas.get(tarea.getId())?.setEtiquetas(etiqueta,etiquetaACambiar)
+    }
+
+    public editarEstadoTarea(tarea:Tarea, estado:EstadoTarea){
+        this.tareas.get(tarea.getId())?.setEstadoTarea(estado);
+    }
+
+    public editarFechaVencimiento(tarea:Tarea, fecha:Date){
+        this.tareas.get(tarea.getId())?.setFechaVencimiento(fecha);
     }
 
 
