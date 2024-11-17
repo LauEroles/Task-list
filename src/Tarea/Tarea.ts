@@ -92,22 +92,36 @@ export default class Tarea {
     //Decidí recorrerlas a las etiquetas con el indice y luego, si la encuentra, le asigno el nuevo  valor de la nueva etiqueta
     //Si no encuentra la etiqueta la agrega
     public setEtiquetas(etiqueta:string, etiquetaACambiar:string){
-        for(let i=0;i<this.etiquetas.length;i++){
-            if(this.etiquetas[i]===etiqueta){
-                this.etiquetas[i]=etiquetaACambiar;
-            }else{
-                this.agregarEtiquetas(etiquetaACambiar);
+        
+        
+        if(this.existeEtiqueta((etiquetaACambiar))){
+            //existe una etiqueta con la misma descripcion que la nueva etiqueta
+            //entonces, elimino la etiqueta anterior para no duplicar la nueva
+            this.eliminarEtiqueta(etiqueta);
+        }else if(!this.existeEtiqueta(etiqueta)&& !this.existeEtiqueta(etiquetaACambiar)){
+            //si no existe ni la etiqueta anterior , ni la nueva, agrego directamente la etiqueta nueva
+            this.agregarEtiqueta(etiquetaACambiar);
+        }else{
+            //Solo existe la etiqueta original, entonces la busco y la reemplazo por la etiqueta nueva
+            for(let i=0;i<this.etiquetas.length;i++){
+                if(this.etiquetas[i].toUpperCase()==etiqueta.toUpperCase()){
+                    this.etiquetas[i]=etiquetaACambiar;
+                }
             }
+
         }
+       
     }
 
 
     // OTROS MÉTODOS
 
     //Método para buscar etiquetas en el array
+    //convierto todas las etiquetas a Mayusculas para que la etiqueta no se duplique conceptualmente 
+    //indistintamente si esta en mayúscula o minúscula
     public existeEtiqueta(etiqueta:string):boolean{
         for(const etiquetaEncontrada of this.etiquetas){
-            if (etiquetaEncontrada===etiqueta){
+            if (etiquetaEncontrada.toUpperCase()==etiqueta.toUpperCase()){
                 return true;
             }
 
@@ -117,7 +131,7 @@ export default class Tarea {
     }
 
     //Método para agregar etiquetas
-    public agregarEtiquetas(etiqueta:string): void {
+    public agregarEtiqueta(etiqueta:string): void {
         if(this.existeEtiqueta(etiqueta)==false){
             this.etiquetas.push(etiqueta);
         }
@@ -127,9 +141,9 @@ export default class Tarea {
     //comparo cada etiqueta etiquetaBuscada en el array con la etiqueta que quiero eliminar 
     //Si et no es igual a la etiqueta a eliminar, el elemento se incluye en el nuevo array.
     //Si et es igual a la etiqueta que quieres eliminar, filter excluye este elemento del nuevo array.
-    public EliminarEtiqueta(etiqueta: string): void {
+    public eliminarEtiqueta(etiqueta: string): void {
         //Podri haber eliminado tambien con IndexOf y splice? revisar despues esto
-        this.etiquetas = this.etiquetas.filter(etiquetaBuscada => etiquetaBuscada !== etiqueta);
+        this.etiquetas = this.etiquetas.filter(etiquetaBuscada => etiquetaBuscada.toUpperCase() !== etiqueta.toUpperCase());
     }
 
     //VER PORQUE CON EL FILTER NO NECESITO HACER ESTA BUSQUEDA ASI

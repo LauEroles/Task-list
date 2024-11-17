@@ -51,11 +51,33 @@ describe ("Tests clase Tarea", () => {
     })
 
     it("Verifico al cambiar etiqueta, que tome el nuevo valor asignado", () => {
-        //ver bien porque no me toma las lineas de la 96 a las 101 que tiene la logica de edicion de etiqueta :(  !!
         const etiqueta:string="Trabajo";
-        const etiquetaACambiar:string="Trabajo";
+        const etiquetaACambiar:string="Nuevo trabajo";
+        
+        // Caso 1: No existe ninguna etiqueta previa, por lo tanto, agrego la etiqueta nueva
+        expect(instance.getEtiquetas().length).toBe(0);
         instance.setEtiquetas(etiqueta,etiquetaACambiar);
-        expect(instance.getEtiquetas()).toBe(etiquetaACambiar);
+        expect(instance.getEtiquetas().length).toBe(1);
+        expect(instance.getEtiquetas()[0]).toBe(etiquetaACambiar);
+
+        //Caso 2:intento cambiar una etiqueta que no existe, por otra que no existe
+        instance.setEtiquetas("Trabajo","Proyecto");
+        instance.setEtiquetas("Casa","Jardín");
+        expect(instance.getEtiquetas().length).toBe(3);
+
+        // Caso 3: Intento cambiar una etiqueta que existe, por otra que existe
+        instance.setEtiquetas("Proyecto","Jardín");
+        expect(instance.getEtiquetas().length).toBe(2);
+        expect(instance.getEtiquetas()).toEqual([ etiquetaACambiar,"Jardín"]);
+
+        //Caso 4: Intento cambiar una etiqeuta que existe por otra que no existe
+        instance.setEtiquetas("Jardín","Cocina");
+        expect(instance.getEtiquetas().length).toBe(2);
+        expect(instance.getEtiquetas()).toEqual([ etiquetaACambiar,"Cocina"]);
+
+
+
+
     })
 
 
@@ -73,28 +95,37 @@ describe ("Tests clase Tarea", () => {
 
     it("Verifico si una Tarea puede crear una etiqueta",()=>{
         let etiquetaAAgregar:string="etiquetaAgregada";
-        expect(instance.agregarEtiquetas(etiquetaAAgregar)).toBe(etiquetaAAgregar);
-
+        instance.agregarEtiqueta(etiquetaAAgregar);
+        expect(instance.getEtiquetas().length).toBe(1);
 
     })
    
     it("Verifico si una etiqueta existe en una tarea", ()=>{
-        let etiquetaExistente:string="si esxiste";
-        instance.agregarEtiquetas(etiquetaExistente);
+        let etiquetaExistente:string="Si Existe";
+        instance.agregarEtiqueta(etiquetaExistente);
         expect(instance.existeEtiqueta(etiquetaExistente)).toBe(true);
+        expect(instance.existeEtiqueta(etiquetaExistente.toUpperCase())).toBe(true);
     })
 
     it("Verifico si puedo eliminar una etiqueta en una tarea", ()=>{
-        let etiquetaAEliminar:string="esta si";
-        instance.agregarEtiquetas(etiquetaAEliminar);
-        instance.agregarEtiquetas("Trabajo");
-        instance.agregarEtiquetas("Personal");
-        instance.agregarEtiquetas("Proyecto");
-        instance.agregarEtiquetas("Estudioo");
+        let etiquetaAEliminar:string="Esta si";
+        instance.agregarEtiqueta(etiquetaAEliminar);
+        instance.agregarEtiqueta("Trabajo");
+        instance.agregarEtiqueta("Personal");
+        instance.agregarEtiqueta("Proyecto");
+        instance.agregarEtiqueta("Estudio");
 
-        instance.EliminarEtiqueta(etiquetaAEliminar)
+        expect(instance.getEtiquetas()).toContain(etiquetaAEliminar);
+        instance.eliminarEtiqueta(etiquetaAEliminar)
         expect(instance.getEtiquetas()).not.toContain(etiquetaAEliminar);
         expect(instance.getEtiquetas()).toEqual(["Trabajo","Personal","Proyecto","Estudio"]);
+        
+        //Voy a probar lo mismo pero cambiando a mayúsculas, para garantizar que funcione el UpperCase
+        instance.agregarEtiqueta(etiquetaAEliminar);
+        expect(instance.getEtiquetas()).toContain(etiquetaAEliminar);
+        instance.eliminarEtiqueta(etiquetaAEliminar.toUpperCase());
+        expect(instance.getEtiquetas()).not.toContain(etiquetaAEliminar);
+
     })
 
 
@@ -131,23 +162,20 @@ describe ("Tests clase Tarea", () => {
         //Caso 1  porcentaje1:number=100;
         instance.actualizarPorcentajeAvance(100);
         instance.MarcarTareaComoCompleta();
-        expect(instance.getEstadoTarea).toBe(EstadoTarea.COMPLETADO);
+        expect(instance.getEstadoTarea()).toBe(EstadoTarea.COMPLETADO);
 
 
         //Caso 2 porcentaje2:number=50;
         instance.actualizarPorcentajeAvance(50);
-        instance.MarcarTareaComoCompleta();
-        expect(instance.getEstadoTarea).toBe(EstadoTarea.PENDIENTE);
+        expect(instance.getEstadoTarea()).toBe(EstadoTarea.PENDIENTE);
 
         //Caso 3 porcentaje3:number=25;
         instance.actualizarPorcentajeAvance(25);
-        instance.MarcarTareaComoCompleta();
-        expect(instance.getEstadoTarea).toBe(EstadoTarea.PENDIENTE);
+        expect(instance.getEstadoTarea()).toBe(EstadoTarea.PENDIENTE);
 
         //Caso 4 porcentaje4:number=0;
         instance.actualizarPorcentajeAvance(0);
-        instance.MarcarTareaComoCompleta();
-        expect(instance.getEstadoTarea).toBe(EstadoTarea.PENDIENTE);
+        expect(instance.getEstadoTarea()).toBe(EstadoTarea.PENDIENTE);
 
 
     })
