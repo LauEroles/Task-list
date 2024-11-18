@@ -5,80 +5,66 @@ import { InterfazBuilder } from "./InterfazBuilder";
 
 export class BuilderTarea implements InterfazBuilder{
 
-    private tarea:Tarea | undefined;
-    private maxIdTarea: number;
+    private tarea:Tarea;
 
-    constructor(maxIdTarea: number) {
-        this.maxIdTarea = maxIdTarea;
-        this.reset();
+    constructor() {
+        this.tarea = new Tarea(0, "");
 
     }
 
-    private reset(): void {
-        let nuevoIdTarea = this.crearNuevoIdTarea();
+    public reset(ultimoIdTarea:number): void {
+        let nuevoIdTarea = this.crearNuevoIdTarea(ultimoIdTarea);
         this.tarea = new Tarea(nuevoIdTarea, "");
     }
 
     public getTarea():Tarea {
-        const result = this.tarea as Tarea;
-        this.reset();
-        return result;
+        return this.tarea;
     }
     
-    
 
-    //Genero el id  con una funcion crearNuevoIdTarea, teniendo en cuenta el MaxId que obtengo del
+    //Genero el id  con una funcion crearNuevoIdTarea, teniendo en cuenta el MaxId que recibo de
     // la clase App 
-    private crearNuevoIdTarea(): number{ 
-        this.maxIdTarea = this.maxIdTarea+1;
-
-        return this.maxIdTarea;
+    private crearNuevoIdTarea(ultimoIdTarea:number): number{ 
+        return ultimoIdTarea+1;
     }
     
-    //TODO:Aqui si es undefine podria  gestionarnarlo como error??? ver bien
+    
     public setTitulo(titulo:string):void{
-        if (this.tarea!=undefined){
-            (this.tarea as Tarea).setTitulo(titulo);
-        }
+        this.tarea.setTitulo(titulo);
             
     }
 
 
     public setDescripcion(descripcion:string):void{
-        if(this.tarea!=undefined){
-            (this.tarea as Tarea).setDescripcion(descripcion);
-        }
+         this.tarea.setDescripcion(descripcion);
+        
     }
 
     
     public setPorcentajeAvance(porcentaje:number):void{
-        if(this.tarea!=undefined){
-            (this.tarea as Tarea).setPorcentajeAvance(porcentaje);
-        }
+         this.tarea.setPorcentajeAvance(porcentaje);
+    
     }
 
     public setPrioridad(prioridad:PrioridadTarea):void{
         if(this.tarea!=undefined){
-            (this.tarea as Tarea).setPrioridad(prioridad);
+            this.tarea.setPrioridad(prioridad);
         }
     }
 
     public agregarEtiqueta(etiqueta:string):void{
-        if(this.tarea!=undefined){
-            (this.tarea as Tarea).agregarEtiquetas(etiqueta);
-        }
+            this.tarea.agregarEtiqueta(etiqueta);
+        
     }
 
-    public setEstado(estado:EstadoTarea):void{
-        if(this.tarea!=undefined){
-            (this.tarea as Tarea).setEstado(estado);
-        }
+    public setEstadoTarea(estado:EstadoTarea):void{
+            this.tarea.setEstadoTarea(estado);
+        
     }
 
     public setFechaVencimiento(fechaVencimiento:Date):void{
-        if(this.tarea!=undefined){
-            (this.tarea as Tarea).setFechaVencimiento(fechaVencimiento);
-        }
+            this.tarea.setFechaVencimiento(fechaVencimiento);
+        
     }
 
 

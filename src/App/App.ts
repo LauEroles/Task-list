@@ -40,7 +40,7 @@ export class App{
         // Creo una nueva Tarea --> en realidad la crea el Director, quien a su vez recibe un
         // TareaBuilder (quien tiene tambien responabilidad de generar el id, en base a la info que le brinda la app desde
         // el metodo obtenerMaxIdTarea() )
-        const nuevaTarea: Tarea= this.directorTarea.crearTarea(tituloTarea);        
+        const nuevaTarea: Tarea= this.directorTarea.crearTarea(this.obtenerMaxIdTarea(),tituloTarea);        
         
         //carga la tarea en el Map
         this.tareas.set(nuevaTarea.getId(),nuevaTarea);

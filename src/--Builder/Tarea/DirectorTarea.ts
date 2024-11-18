@@ -14,14 +14,14 @@ export class DirectorTarea{
         this.builder = builder;
     }
 
-    public crearTarea(titulo:string):Tarea{ // es el equivalente al Make de la teoria
+    public crearTarea(ultimoIdTarea:number,titulo:string):Tarea{ // es el equivalente al Make de la teoria
 
-        
+        this.builder.reset(ultimoIdTarea);
         this.builder.setTitulo(titulo);
         this.builder.setDescripcion("");
         this.builder.setPorcentajeAvance(0);
         this.builder.setPrioridad(PrioridadTarea.BAJA);
-        this.builder.setEstado(EstadoTarea.PENDIENTE);
+        this.builder.setEstadoTarea(EstadoTarea.PENDIENTE);
         this.builder.setFechaVencimiento(new Date(Date.now()));
 
         return this.builder.getTarea();
