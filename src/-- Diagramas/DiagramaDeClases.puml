@@ -20,13 +20,50 @@ class App{
     +eliminarTarea(tarea:Tarea):void
     +ordenarTareas(tareas:Tarea[]):void
     +buscarTareaPorId(): Tarea
-    +organizarTareasPorCategoria():Tarea
     +existeTarea (tarea:Tarea):bool
     +obtenerMaxIdTarea():number
 
+    +ordenarTareasPorFechaVto(): Tarea[]
+    +ordenarTareasPorPrioridad(): Tarea[]
+    +ordenarTareasPorTitulo(): Tarea[]
+    
+}
 
+abstract class Ordenamiento{
+    +crearOrdenamiento():InterfazOrdenar
+}
+
+class PorFechaVencimiento extends Ordenamiento{
+    +crearOrdenamiento():InterfazOrdenar
+}
+
+class PorPrioridad extends Ordenamiento{
+    +crearOrdenamiento():InterfazOrdenar
+}
+
+class PorTitulo extends Ordenamiento{
+    +crearOrdenamiento():InterfazOrdenar
+}
+
+interface InterfazOrdenar{
+    ordenar(tareas:Map<number,Tarea>):Tarea[]
+}
+
+class OrdenarPorFecha implements InterfazOrdenar{
+  + ordenar(tareas: Map<number, Tarea>): Tarea[]
 
 }
+
+class OrdenarPorPrioridad implements InterfazOrdenar{
+   + ordenar(tareas: Map<number, Tarea>): Tarea[]
+
+}
+
+class OrdenarPorTitulo implements InterfazOrdenar{
+   + ordenar(tareas: Map<number, Tarea>): Tarea[]
+}
+
+
 
 class BuilderTarea implements InterfazBuilder{
     -tarea:Tarea|undefined
@@ -68,7 +105,7 @@ class Tarea {
     -prioridadTarea: PrioridadTarea
     +setterGetters()
     +añadirEtiqueta(etiqueta:Etiqueta):void
-    +buscarEtiqueta(etiqueta:string):string|null ??? no hará falta?
+    +existeEtiqueta(etiqueta:string):bool
     +eliminarEtiqueta(etiqueta:Etiqueta):void
     +marcarTareaCompleta():void
 }
@@ -148,6 +185,7 @@ enum PrioridadTarea{
     set
     end note
 
-
+    Ordenamiento..>InterfazOrdenar
+    App-->Ordenamiento
 
     @enduml
