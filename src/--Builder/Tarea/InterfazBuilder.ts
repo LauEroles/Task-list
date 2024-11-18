@@ -15,7 +15,7 @@ export interface InterfazBuilder {
     setPrioridad(prioridad:PrioridadTarea):void;
     agregarEtiqueta(etiqueta:string):void;
     setEstadoTarea(estado:EstadoTarea):void;
-    setFechaVencimiento(fechaVencimiento:Date):void;
+    setFechaVencimiento(fechaVencimiento:Date|undefined):void;
     
 
 }

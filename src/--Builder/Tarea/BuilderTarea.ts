@@ -62,7 +62,7 @@ export class BuilderTarea implements InterfazBuilder{
         
     }
 
-    public setFechaVencimiento(fechaVencimiento:Date):void{
+    public setFechaVencimiento(fechaVencimiento:Date|undefined):void{
             this.tarea.setFechaVencimiento(fechaVencimiento);
         
     }
