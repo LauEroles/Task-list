@@ -1,3 +1,4 @@
+import path from "path";
 
 /*
 importar y usar libreria Ale

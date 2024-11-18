@@ -14,24 +14,34 @@ export class DirectorTarea{
         this.builder = builder;
     }
 
-    public crearTarea(titulo:string):Tarea{ // es el equivalente al Make de la teoria
+    public crearTarea(ultimoIdTarea:number,titulo:string):Tarea{ // es el equivalente al Make de la teoria
 
-        
+        this.builder.reset(ultimoIdTarea);
         this.builder.setTitulo(titulo);
         this.builder.setDescripcion("");
         this.builder.setPorcentajeAvance(0);
         this.builder.setPrioridad(PrioridadTarea.BAJA);
-        this.builder.setEstado(EstadoTarea.PENDIENTE);
-        this.builder.setFechaVencimiento(new Date(Date.now()));
+        this.builder.setEstadoTarea(EstadoTarea.PENDIENTE);
 
         return this.builder.getTarea();
 
     }
 
-    //crear diferentes tareas con diferentes parametros por default
-    //Puedo duplicar una tarea, ver como podria hacer esta logica
+    //Aprovechando el patrón builder, agrego una manera de crear una tarea a partir de otra
+    //duplicando la misma
+    public duplicarTarea(ultimoIdTarea:number,tarea:Tarea):Tarea{ // es el equivalente al Make de la teoria
 
+        this.builder.reset(ultimoIdTarea);
+        this.builder.setTitulo(tarea.getTitulo());
+        this.builder.setDescripcion(tarea.getDescripcion());
+        this.builder.setPorcentajeAvance(tarea.getPorcentajeAvance());
+        this.builder.setPrioridad(tarea.getPrioridad());
+        this.builder.setEstadoTarea(tarea.getEstadoTarea());
+        this.builder.setFechaVencimiento(tarea.getFechaVencimiento());
 
+        return this.builder.getTarea();
+
+    }
 
 
 

@@ -82,7 +82,7 @@ export default class Tarea {
         this.estado = estado;
     }
 
-    public setFechaVencimiento(fechaVencimiento: Date): void {
+    public setFechaVencimiento(fechaVencimiento: Date|undefined): void {
         this.fechaVencimiento = fechaVencimiento;
     }
 

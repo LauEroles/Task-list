@@ -14,21 +14,22 @@ import { InterfazOrdenar } from "../Ordenamiento/InterfazOrdenar";
 export class App{
     
     private tareas: Map<number, Tarea> ;
-    private directorTarea: DirectorTarea
+    private directorTarea: DirectorTarea;
 
     private factoryOrdenarPorTitulo: Ordenamiento;
     private factoryOrdenarPorFechaVto: Ordenamiento;
     private factoryOrdenarPorPrioridad: Ordenamiento;
 
 
-    constructor(tareas: Map<number,Tarea>, director: DirectorTarea) {    
+    constructor(tareas: Map<number,Tarea>, director: DirectorTarea,estadisticas:Estadistica[]) {    
         
         this.tareas = tareas;
         this.directorTarea = director;
 
-        this.factoryOrdenarPorTitulo = new OrdenamientoPorTitulo()
-        this.factoryOrdenarPorFechaVto = new OrdenamientoPorFechaVto()
-        this.factoryOrdenarPorPrioridad = new OrdenamientoPorPrioridad()
+
+        this.factoryOrdenarPorTitulo = new OrdenamientoPorTitulo();
+        this.factoryOrdenarPorFechaVto = new OrdenamientoPorFechaVto();
+        this.factoryOrdenarPorPrioridad = new OrdenamientoPorPrioridad();
 
     }
 
@@ -40,7 +41,7 @@ export class App{
         // Creo una nueva Tarea --> en realidad la crea el Director, quien a su vez recibe un
         // TareaBuilder (quien tiene tambien responabilidad de generar el id, en base a la info que le brinda la app desde
         // el metodo obtenerMaxIdTarea() )
-        const nuevaTarea: Tarea= this.directorTarea.crearTarea(tituloTarea);        
+        const nuevaTarea: Tarea= this.directorTarea.crearTarea(this.obtenerMaxIdTarea(),tituloTarea);        
         
         //carga la tarea en el Map
         this.tareas.set(nuevaTarea.getId(),nuevaTarea);
@@ -52,25 +53,6 @@ export class App{
     }
 
 
-    //Vamos a revisarla bien, podemos pasar un objeto dentro de un map para
-    //setear los parámetros que debamos modificar
-
-    public editarTarea(tarea:Tarea, titulo:string):void{ 
-        //como no es una API, la modificacion de la tarea sale de la tarea en si, podemos recibir la tarea y actualizarla en el map.
-        // en un mapa si ya existe la entrada, en este caso el ID, la updatea con el nuevo valor(objeto). seria mas un actualizarTarea.
-        //y si no la tenemos la agregamos al map. ?? Ya no aplicariaaa esto asi como esta aqui, revisar mas tarde, estoy quemada
-       
-        let idTarea = tarea.getId();
-
-        if(this.tareas.has(idTarea)){
-
-            this.tareas.set(idTarea,tarea);
-
-        }  //TODO: si no encuentro la tarea tiro una excepción o la agrego??
-        //Revisar
-        // else this.agregarTarea(tarea);
-        
-    }
 
 
     /* busca la tarea en el Map usando el id de la tarea proporcionada (tarea.getId()).
@@ -179,7 +161,7 @@ export class App{
         return t;
     }
 
-    //TODO
+    //TODO: preguntar al profe si puedo dejar esta funcion porque no termino mas :( Me falta un montonaso)
     public organizarTareasPorCategoria():Tarea{
         let t=new Tarea(12,"tt")
         return t;
@@ -203,6 +185,15 @@ export class App{
         })
 
         return maxId;     
+    }
+
+    private conversorMapaAVector():Tarea[]{
+        let array:Tarea[] = [];
+
+        this.tareas.forEach((tarea:Tarea, _key:number)=>{
+            array.push(tarea);
+        });
+        return array;
     }
 
 
