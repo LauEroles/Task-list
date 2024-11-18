@@ -1,35 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="14" failures="0" errors="0" time="7.483">
-  <testsuite name="Tests clase OrdenarPorTitulo" errors="0" failures="0" skipped="0" timestamp="2024-11-17T23:05:16" time="6.214" tests="1">
-    <testcase classname="Tests clase OrdenarPorTitulo Ordena una array de tareas por titulo Ordena una array de tareas por titulo" name="Tests clase OrdenarPorTitulo Ordena una array de tareas por titulo Ordena una array de tareas por titulo" time="0.005">
+<testsuites name="jest tests" tests="19" failures="0" errors="0" time="10.512">
+  <testsuite name="Tests clase OrdenarPorFecha" errors="0" failures="0" skipped="0" timestamp="2024-11-18T17:13:53" time="5.223" tests="2">
+    <testcase classname="Tests clase OrdenarPorFecha En un mapa vacio, devuelve un array de tareas vacio En un mapa vacio, devuelve un array de tareas vacio" name="Tests clase OrdenarPorFecha En un mapa vacio, devuelve un array de tareas vacio En un mapa vacio, devuelve un array de tareas vacio" time="0.006">
+    </testcase>
+    <testcase classname="Tests clase OrdenarPorFecha Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por fecha Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por fecha" name="Tests clase OrdenarPorFecha Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por fecha Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por fecha" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="Tests clase Tarea" errors="0" failures="0" skipped="0" timestamp="2024-11-17T23:05:22" time="0.33" tests="13">
-    <testcase classname="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" name="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" time="0.002">
+  <testsuite name="Tests clase OrdenarPorPrioridad" errors="0" failures="0" skipped="0" timestamp="2024-11-18T17:13:58" time="3.225" tests="2">
+    <testcase classname="Tests clase OrdenarPorPrioridad En un mapa vacio, devuelve un array de tareas vacio En un mapa vacio, devuelve un array de tareas vacio" name="Tests clase OrdenarPorPrioridad En un mapa vacio, devuelve un array de tareas vacio En un mapa vacio, devuelve un array de tareas vacio" time="0.002">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" time="0.001">
+    <testcase classname="Tests clase OrdenarPorPrioridad Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por Prioridad Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por Prioridad" name="Tests clase OrdenarPorPrioridad Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por Prioridad Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por Prioridad" time="0.002">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico al cambiar la descripción, que tome el nuevo valor asignado Verifico al cambiar la descripción, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la descripción, que tome el nuevo valor asignado Verifico al cambiar la descripción, que tome el nuevo valor asignado" time="0.001">
+  </testsuite>
+  <testsuite name="Tests clase Tarea" errors="0" failures="0" skipped="0" timestamp="2024-11-18T17:14:02" time="0.334" tests="13">
+    <testcase classname="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" name="Tests clase Tarea Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto Verifico obtener instancia de Tarea con Id 1, Descripcion prueba y valores por defecto" time="0.009">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado" time="0">
+    <testcase classname="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el titulo, que tome el nuevo valor asignado Verifico al cambiar el titulo, que tome el nuevo valor asignado" time="0.002">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico al cambiar la prioridad, que tome el nuevo valor asignado Verifico al cambiar la prioridad, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la prioridad, que tome el nuevo valor asignado Verifico al cambiar la prioridad, que tome el nuevo valor asignado" time="0.001">
+    <testcase classname="Tests clase Tarea Verifico al cambiar la descripción, que tome el nuevo valor asignado Verifico al cambiar la descripción, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la descripción, que tome el nuevo valor asignado Verifico al cambiar la descripción, que tome el nuevo valor asignado" time="0.002">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico al cambiar etiqueta, que tome el nuevo valor asignado Verifico al cambiar etiqueta, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar etiqueta, que tome el nuevo valor asignado Verifico al cambiar etiqueta, que tome el nuevo valor asignado" time="0.002">
+    <testcase classname="Tests clase Tarea Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado Verifico al cambiar el porcentaje de Avance, que tome el nuevo valor asignado" time="0.001">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico al cambiar la prioridad, que tome el nuevo valor asignado Verifico al cambiar la prioridad, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la prioridad, que tome el nuevo valor asignado Verifico al cambiar la prioridad, que tome el nuevo valor asignado" time="0.002">
+    </testcase>
+    <testcase classname="Tests clase Tarea Verifico al cambiar etiqueta, que tome el nuevo valor asignado Verifico al cambiar etiqueta, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar etiqueta, que tome el nuevo valor asignado Verifico al cambiar etiqueta, que tome el nuevo valor asignado" time="0.004">
     </testcase>
     <testcase classname="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado Verifico al cambiar el estado de la tarea, que tome el nuevo valor asignado" time="0.001">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" time="0.003">
+    <testcase classname="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" name="Tests clase Tarea Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado Verifico al cambiar la fecha de la tarea, que tome el nuevo valor asignado" time="0.002">
     </testcase>
     <testcase classname="Tests clase Tarea Verifico si una Tarea puede crear una etiqueta Verifico si una Tarea puede crear una etiqueta" name="Tests clase Tarea Verifico si una Tarea puede crear una etiqueta Verifico si una Tarea puede crear una etiqueta" time="0.001">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" name="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" time="0.001">
+    <testcase classname="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" name="Tests clase Tarea Verifico si una etiqueta existe en una tarea Verifico si una etiqueta existe en una tarea" time="0.002">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" name="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" time="0.001">
+    <testcase classname="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" name="Tests clase Tarea Verifico si puedo eliminar una etiqueta en una tarea Verifico si puedo eliminar una etiqueta en una tarea" time="0.002">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" name="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" time="0.023">
+    <testcase classname="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" name="Tests clase Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea Verifico si puedo actualizar el porcentaje de Avance de la Tarea" time="0.029">
     </testcase>
-    <testcase classname="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" name="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" time="0.001">
+    <testcase classname="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" name="Tests clase Tarea Verifico si el método  MarcarTareaComoCompleta() funciona Verifico si el método  MarcarTareaComoCompleta() funciona" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Tests clase OrdenarPorTitulo" errors="0" failures="0" skipped="0" timestamp="2024-11-18T17:14:02" time="0.283" tests="2">
+    <testcase classname="Tests clase OrdenarPorTitulo En un mapa vacio, devuelve un array de tareas vacio En un mapa vacio, devuelve un array de tareas vacio" name="Tests clase OrdenarPorTitulo En un mapa vacio, devuelve un array de tareas vacio En un mapa vacio, devuelve un array de tareas vacio" time="0.002">
+    </testcase>
+    <testcase classname="Tests clase OrdenarPorTitulo Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por título Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por título" name="Tests clase OrdenarPorTitulo Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por título Dado un mapa cargado con tareas, devuelve un array ordenado con las tareas por título" time="0.004">
     </testcase>
   </testsuite>
 </testsuites>

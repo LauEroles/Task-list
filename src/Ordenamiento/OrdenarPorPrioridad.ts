@@ -12,16 +12,28 @@ export class OrdenarPorPrioridad implements InterfazOrdenar{
             array.push(tarea);
         });
 
-        array.sort(this.comparador);
+        array.sort(this.comparadorDescendente);
         return array;
    
     }
 
     //TODO:
-    private comparador(t1:Tarea, t2:Tarea):number{
-       
-        return 0;
+    // Compara de mayor prioridad a menor prioridad
+    private comparadorDescendente(t1:Tarea, t2:Tarea):number{
+        
+        let value:number = 0;
+
+
+        if(t1.getPrioridad() > t2.getPrioridad()){
+            value=-1;
+        }else if(t1.getPrioridad() < t2.getPrioridad()){
+            value=1;
+        }
+        return value;
+
     }
 
+
+    
 }
 

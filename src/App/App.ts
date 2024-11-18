@@ -5,10 +5,10 @@ import List from "../-- Nodos/List";
 import { PrioridadTarea } from "../Tarea/Enumeradores/PrioridadTarea";
 import { DirectorTarea } from "../--Builder/Tarea/DirectorTarea";
 import { EstadoTarea } from "../Tarea/Enumeradores/EstadoTarea";
-import { Ordenamiento } from "../--Factory Method/Ordenamiento/Ordenamiento";
-import { OrdenamientoPorFechaVto } from "../--Factory Method/Ordenamiento/PorFechaVenciminto";
-import { OrdenamientoPorTitulo } from "../--Factory Method/Ordenamiento/PorTitulo";
-import { OrdenamientoPorPrioridad } from "../--Factory Method/Ordenamiento/PorPrioridad";
+import { Ordenamiento } from "../--FactoryMethod/Ordenamiento/Ordenamiento";
+import { OrdenamientoPorFechaVto } from "../--FactoryMethod/Ordenamiento/PorFechaVenciminto";
+import { OrdenamientoPorTitulo } from "../--FactoryMethod/Ordenamiento/PorTitulo";
+import { OrdenamientoPorPrioridad } from "../--FactoryMethod/Ordenamiento/PorPrioridad";
 import { InterfazOrdenar } from "../Ordenamiento/InterfazOrdenar";
 
 export class App{
@@ -72,8 +72,6 @@ export class App{
         
     }
 
-    //TODO: editar: fechaVencimiento,estadoTarea
-
 
     /* busca la tarea en el Map usando el id de la tarea proporcionada (tarea.getId()).
        Encadenamiento Opcional (?.): uso ?. para intentar llamar a setTitulo solo si la tarea fue encontrada en el Map. 
@@ -120,9 +118,6 @@ export class App{
     }
 
 
-   
-    
-
 
 
     public eliminarTarea(tarea:Tarea):void{
@@ -139,14 +134,18 @@ export class App{
 
     //TODO
     public ordenarTareasPorTitulo(): Tarea[]{
-        let ordenamiento: InterfazOrdenar = this.factoryOrdenarPorTitulo.crearOrdenamiento();
-        return ordenamiento.ordenar(this.tareas);
+        let ordenamientoTitulo: InterfazOrdenar = this.factoryOrdenarPorTitulo.crearOrdenamiento();
+        return ordenamientoTitulo.ordenar(this.tareas);
     }
     //TODO
     public ordenarTareasPorFechaVto(): Tarea[]{
+        let ordenamientoFecha:InterfazOrdenar=this.factoryOrdenarPorFechaVto.crearOrdenamiento();
+        return ordenamientoFecha.ordenar(this.tareas);
     }
     //TODO
     public ordenarTareasPorPrioridad(): Tarea[]{
+        let ordenamientoPrioridad:InterfazOrdenar=this.factoryOrdenarPorPrioridad.crearOrdenamiento();
+        return ordenamientoPrioridad.ordenar(this.tareas);
     }
 
     //TODO: creo que no pedia esto el enunciado

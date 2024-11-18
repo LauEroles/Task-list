@@ -22,12 +22,14 @@ export class OrdenarPorFecha implements InterfazOrdenar{
         const fecha2 = t2.getFechaVencimiento();
         let resultado: number = 0;
     
+        //En este caso la fecha de la tarea es undefined, tome la desición de que las tareas que no tengan 
+        //seteadas las fechas queden arriba
         if (!fecha1) {
             // Caso: t1 no tiene fecha y t2 sí
-            resultado = 1;// t2 va primero
+            resultado = -1;// t2 va primero
         } else if (!fecha2) {
             // Caso: t2 no tiene fecha y t1 sí
-            resultado = -1; // t1 va primero
+            resultado = 1; // t1 va primero
         } else if ((fecha1 as Date) < (fecha2 as Date)) {
             // Caso: Ambas fechas son válidas
             resultado = -1; // t1 va primero
