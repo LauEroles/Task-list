@@ -11,6 +11,9 @@ export class OrdenarPorFecha implements InterfazOrdenar{
             array.push(tarea);
         });
 
+        //Le paso por parametro a sort una funcion que compara 2 tareas
+        //Aqui no ven los parentesis porque no le tengo que pasar la ejecusion de la 
+        //funcion sino la funcion para que el método sort la ejecute
         array.sort(this.comparador);
         return array;
    
