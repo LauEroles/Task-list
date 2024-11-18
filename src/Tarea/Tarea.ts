@@ -205,10 +205,4 @@ export default class Tarea {
 
 
 
-        public ordenarEtiquetas():void{
-            let et=this.etiquetas.sort
-
-        }
-
-
 }
