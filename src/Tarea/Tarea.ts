@@ -27,8 +27,6 @@ export default class Tarea {
     }
 
 
-
-
     // Getters
     public getId(): number {
         return this.id;

@@ -148,8 +148,33 @@ export class App{
         return ordenamientoPrioridad.ordenar(this.tareas);
     }
 
-    //TODO: creo que no pedia esto el enunciado
-    public buscarTareaPorId(id: number): Tarea{
+    //Buscar tarea por título
+    public buscarTareaPorTitulo(titulo:string): Tarea|undefined{
+        let tareaEncontrada:Tarea|undefined=undefined;
+    
+        this.tareas.forEach((tarea:Tarea,_key:number)=>{
+            if(tarea.getTitulo()==titulo){
+                tareaEncontrada=tarea;
+            }
+        });
+
+        return tareaEncontrada;
+    }
+
+    //Buscar tarea por feccha
+    public buscarTareaPorFecha(fecha:Date): Tarea|undefined{
+       let tareaEncontrada:Tarea|undefined = undefined;
+
+       this.tareas.forEach((tarea:Tarea,_key:number)=>{
+
+            if(tarea.getFechaVencimiento()==fecha){
+                tareaEncontrada=tarea;
+            }
+            return tareaEncontrada;
+
+       });
+
+       
         let t=new Tarea(12,"tt")
         return t;
     }
